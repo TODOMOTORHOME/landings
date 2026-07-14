@@ -324,15 +324,48 @@
   }
 
   /* ============ FOOTER ============ */
-  footer{
+  .tmh-footer{
     border-top:1px solid var(--line);
-    background:var(--bg-soft);
-    text-align:center;
-    padding:28px 24px;
-    font-size:.85rem;
+    background:#fff;
+    padding:72px 24px 80px;
+  }
+  .tmh-footer__inner{
+    max-width:1160px;
+    margin:0 auto;
+    display:flex;
+    justify-content:space-between;
+    gap:48px;
+    flex-wrap:wrap;
+  }
+  .tmh-footer__brand{max-width:360px;}
+  .tmh-footer__brand img{height:34px;width:auto;display:block;margin-bottom:26px;}
+  .tmh-footer__tagline{
+    color:var(--ink-soft);
+    font-size:1rem;
+    margin-bottom:22px;
+  }
+  .tmh-footer__social{
+    display:flex;
+    gap:22px;
+    margin-bottom:40px;
+  }
+  .tmh-footer__social a{color:var(--gold);display:inline-flex;}
+  .tmh-footer__social a:hover{color:var(--gold-dark);}
+  .tmh-footer__social svg{width:20px;height:20px;}
+  .tmh-footer__copy{
+    color:var(--ink-soft);
+    font-size:.9rem;
+  }
+  .tmh-footer__links{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    font-size:.98rem;
     color:var(--ink-soft);
   }
-  footer a{color:var(--gold-dark);font-weight:600;}
+  .tmh-footer__links a{color:var(--ink-soft);}
+  .tmh-footer__links a:hover{color:var(--gold-dark);}
+  .tmh-footer__links .tmh-footer__gap{height:28px;}
 </style>
 </head>
 <body>
@@ -506,8 +539,34 @@
   </section>
 </main>
 
-<footer>
-  FATCRA · FAQs Homologación Vehicular 2026 — Publicado en <a href="https://www.todomotorhome.ar">todomotorhome.ar</a>
+<footer class="tmh-footer">
+  <div class="tmh-footer__inner">
+    <div class="tmh-footer__brand">
+      <a href="https://www.todomotorhome.ar" aria-label="Todo Motorhome">
+        <img src="data:image/avif;base64,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" alt="Todo Motorhome">
+      </a>
+      <p class="tmh-footer__tagline">Todomotorhome - Encontrá todo lo que buscás en el Mundo del Motorhome</p>
+      <div class="tmh-footer__social">
+        <a href="https://www.facebook.com/todomotorhome" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/todomotorhome" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </div>
+      <p class="tmh-footer__copy">© 2026 Todo Motorhome</p>
+    </div>
+    <div class="tmh-footer__links">
+      <a href="https://www.todomotorhome.ar">Nuestras soluciones para empresas</a>
+      <div class="tmh-footer__gap"></div>
+      <a href="https://www.todomotorhome.ar">Términos y Condiciones</a>
+      <a href="https://www.todomotorhome.ar">Políticas de Publicación</a>
+      <a href="https://www.todomotorhome.ar">Defensa del Consumidor</a>
+      <a href="https://www.todomotorhome.ar">Políticas de Privacidad</a>
+      <div class="tmh-footer__gap"></div>
+      <a href="mailto:hola@todomotorhome.ar">hola@todomotorhome.ar</a>
+    </div>
+  </div>
 </footer>
 
 </body>
