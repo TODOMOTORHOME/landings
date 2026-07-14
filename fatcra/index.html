@@ -1,1 +1,393 @@
-hola mundo
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FATCRA · FAQs Homologación Vehicular 2026</title>
+<meta name="description" content="Preguntas frecuentes sobre homologación vehicular 2026 para tráilers, casas rodantes y motorhomes en Argentina. Base de conocimiento oficial de FATCRA.">
+<style>
+  :root{
+    --gold:#c99b2f;
+    --gold-dark:#a87f1e;
+    --ink:#1f2328;
+    --ink-soft:#4b5158;
+    --line:#e6e6e6;
+    --bg:#ffffff;
+    --bg-soft:#faf8f3;
+    --alert:#b3261e;
+    --alert-bg:#fdf0ef;
+    --ok:#1e6f42;
+    --ok-bg:#eef7f1;
+    --radius:12px;
+    font-size:16px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+
+  /* ============ HEADER (estilo todomotorhome.ar) ============ */
+  .tmh-header{
+    background:#fff;
+    border-bottom:1px solid var(--line);
+    position:sticky;
+    top:0;
+    z-index:50;
+  }
+  .tmh-header__inner{
+    max-width:1400px;
+    margin:0 auto;
+    padding:14px 24px;
+    display:flex;
+    align-items:center;
+    gap:28px;
+  }
+  .tmh-logo{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    flex-shrink:0;
+    font-size:1.35rem;
+    letter-spacing:-.02em;
+    padding-right:24px;
+    border-right:1px solid var(--line);
+  }
+  .tmh-logo svg{width:34px;height:34px;display:block;}
+  .tmh-logo b{font-weight:800;}
+  .tmh-logo span{font-weight:400;}
+  .tmh-search{
+    flex:1;
+    max-width:520px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    border:1px solid #d9d9d9;
+    border-radius:999px;
+    padding:9px 18px;
+    color:#9a9a9a;
+    background:#fff;
+  }
+  .tmh-search svg{width:18px;height:18px;flex-shrink:0;stroke:var(--gold);}
+  .tmh-search input{
+    border:none;
+    outline:none;
+    width:100%;
+    font-size:.95rem;
+    background:transparent;
+    color:var(--ink);
+  }
+  .tmh-search input::placeholder{color:#9a9a9a;}
+  .tmh-nav{
+    margin-left:auto;
+    display:flex;
+    align-items:center;
+    gap:26px;
+    font-size:.92rem;
+    white-space:nowrap;
+  }
+  .tmh-nav a{color:var(--ink);}
+  .tmh-nav a:hover{color:var(--gold-dark);}
+  .tmh-nav a.tmh-nav--gold{color:var(--gold);font-weight:600;}
+  .tmh-nav a.tmh-nav--gold:hover{color:var(--gold-dark);}
+  .tmh-nav .tmh-caret::after{
+    content:"";
+    display:inline-block;
+    margin-left:6px;
+    width:7px;height:7px;
+    border-right:1.5px solid currentColor;
+    border-bottom:1.5px solid currentColor;
+    transform:rotate(45deg) translateY(-2px);
+  }
+  @media (max-width:1100px){
+    .tmh-nav{gap:16px;font-size:.85rem;}
+    .tmh-nav .tmh-hide-md{display:none;}
+  }
+  @media (max-width:760px){
+    .tmh-header__inner{flex-wrap:wrap;gap:12px;padding:12px 16px;}
+    .tmh-logo{border-right:none;padding-right:0;}
+    .tmh-nav{margin-left:auto;}
+    .tmh-search{order:3;flex-basis:100%;max-width:none;}
+  }
+
+  /* ============ HERO / LOGOTIPO FATCRA ============ */
+  .hero{
+    background:linear-gradient(180deg,var(--bg-soft) 0%,#fff 100%);
+    border-bottom:1px solid var(--line);
+    text-align:center;
+    padding:56px 24px 48px;
+  }
+  .fatcra-logo{
+    display:inline-flex;
+    flex-direction:column;
+    align-items:center;
+    gap:6px;
+    margin-bottom:28px;
+  }
+  .fatcra-logo__mark{
+    font-size:3rem;
+    font-weight:900;
+    letter-spacing:.18em;
+    color:var(--ink);
+    line-height:1;
+  }
+  .fatcra-logo__mark span{color:var(--gold);}
+  .fatcra-logo__rule{
+    width:100%;
+    height:4px;
+    border-radius:2px;
+    background:linear-gradient(90deg,#74c0fc 0%,var(--gold) 50%,#495057 100%);
+  }
+  .fatcra-logo__sub{
+    font-size:.78rem;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    max-width:420px;
+  }
+  .hero h1{
+    font-size:clamp(1.6rem,4vw,2.4rem);
+    font-weight:800;
+    letter-spacing:-.01em;
+    margin-bottom:18px;
+  }
+  .hero h1 em{font-style:normal;color:var(--gold-dark);}
+  .hero p{
+    max-width:760px;
+    margin:0 auto;
+    color:var(--ink-soft);
+    font-size:1.02rem;
+  }
+
+  /* ============ FAQs ============ */
+  .faqs{
+    max-width:860px;
+    margin:0 auto;
+    padding:48px 24px 80px;
+  }
+  .faqs__kicker{
+    text-align:center;
+    font-size:.8rem;
+    font-weight:700;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--gold-dark);
+    margin-bottom:8px;
+  }
+  .faqs__title{
+    text-align:center;
+    font-size:1.5rem;
+    font-weight:800;
+    margin-bottom:34px;
+  }
+  details.faq{
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    margin-bottom:14px;
+    background:#fff;
+    overflow:hidden;
+    transition:box-shadow .2s;
+  }
+  details.faq[open]{box-shadow:0 4px 18px rgba(0,0,0,.06);}
+  details.faq summary{
+    list-style:none;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:18px 20px;
+    font-weight:700;
+    font-size:1.02rem;
+  }
+  details.faq summary::-webkit-details-marker{display:none;}
+  .faq__num{
+    flex-shrink:0;
+    width:38px;height:38px;
+    border-radius:50%;
+    background:var(--bg-soft);
+    border:1px solid var(--line);
+    color:var(--gold-dark);
+    font-size:.85rem;
+    font-weight:800;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .faq__chevron{
+    margin-left:auto;
+    flex-shrink:0;
+    width:10px;height:10px;
+    border-right:2px solid var(--gold);
+    border-bottom:2px solid var(--gold);
+    transform:rotate(45deg);
+    transition:transform .2s;
+  }
+  details.faq[open] .faq__chevron{transform:rotate(-135deg);}
+  .faq__body{
+    padding:0 20px 22px 72px;
+    color:var(--ink-soft);
+    font-size:.97rem;
+  }
+  .faq__body p{margin-bottom:12px;}
+  .faq__body p:last-child{margin-bottom:0;}
+  .faq__body strong{color:var(--ink);}
+  .faq__body ul{margin:0 0 12px;padding-left:20px;}
+  .faq__body li{margin-bottom:8px;}
+  .callout{
+    border-radius:10px;
+    padding:12px 16px;
+    margin-top:14px;
+    font-size:.93rem;
+  }
+  .callout--alert{background:var(--alert-bg);border-left:4px solid var(--alert);}
+  .callout--alert strong{color:var(--alert);}
+  .callout--ok{background:var(--ok-bg);border-left:4px solid var(--ok);}
+  .callout--ok strong{color:var(--ok);}
+  @media (max-width:600px){
+    .faq__body{padding-left:20px;}
+  }
+
+  /* ============ FOOTER ============ */
+  footer{
+    border-top:1px solid var(--line);
+    background:var(--bg-soft);
+    text-align:center;
+    padding:28px 24px;
+    font-size:.85rem;
+    color:var(--ink-soft);
+  }
+  footer a{color:var(--gold-dark);font-weight:600;}
+</style>
+</head>
+<body>
+
+<!-- Header estilo todomotorhome.ar -->
+<header class="tmh-header">
+  <div class="tmh-header__inner">
+    <a class="tmh-logo" href="https://todomotorhome.ar" aria-label="Todo Motorhome">
+      <svg viewBox="0 0 40 40" aria-hidden="true">
+        <path d="M6 26c6-14 22-16 28-10-8-2-18 1-22 12z" fill="#8a5a2b"/>
+        <path d="M9 29c5-11 19-13 25-8-8-1-16 2-20 11z" fill="#c99b2f"/>
+        <path d="M13 31c4-8 14-10 19-6-6 0-12 2-15 9z" fill="#e8c161"/>
+        <path d="M17 33c3-5 9-6 12-4-4 0-8 2-9 6z" fill="#f3e3b5"/>
+      </svg>
+      <div><b>todo</b><span>motorhome</span></div>
+    </a>
+    <div class="tmh-search">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>
+      </svg>
+      <input type="text" placeholder="Buscar en Todo Motorhome..." aria-label="Buscar en Todo Motorhome" disabled>
+    </div>
+    <nav class="tmh-nav" aria-label="Navegación principal">
+      <a class="tmh-nav--gold" href="https://todomotorhome.ar">Publicar anuncio</a>
+      <a class="tmh-hide-md" href="https://todomotorhome.ar">Participá del Censo Rodantero 2025 - 2026</a>
+      <a class="tmh-caret" href="https://todomotorhome.ar">Categorías</a>
+      <a href="https://todomotorhome.ar">Regístrate</a>
+      <a href="https://todomotorhome.ar">Iniciar sesión</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero con logotipo FATCRA -->
+<section class="hero">
+  <div class="fatcra-logo">
+    <div class="fatcra-logo__mark">FAT<span>CRA</span></div>
+    <div class="fatcra-logo__rule"></div>
+    <div class="fatcra-logo__sub">Cámara de Fabricantes Argentinos de Tráilers, Casillas Rodantes y Afines</div>
+  </div>
+  <h1>FAQs <em>Homologación Vehicular 2026</em></h1>
+  <p>Este documento constituye una herramienta estratégica para la comunicación digital de FATCRA. Está estructurado para resolver dudas técnicas de forma rigurosa y, al mismo tiempo, brindar las bases conceptuales para generar contenido de alto impacto en redes sociales (Instagram, TikTok).</p>
+</section>
+
+<!-- FAQs -->
+<main class="faqs">
+  <p class="faqs__kicker">Base de conocimiento</p>
+  <h2 class="faqs__title">Preguntas Frecuentes (FAQs)</h2>
+
+  <details class="faq" open>
+    <summary>
+      <span class="faq__num">Q1</span>
+      ¿Sigue vigente la clásica chapa patente “101” para tráilers y casas rodantes?
+      <span class="faq__chevron"></span>
+    </summary>
+    <div class="faq__body">
+      <p><strong>No, ya no es legal.</strong> La histórica Disposición 1136/1996 (que permitía circular con una chapa casera pintada con el “101” más la patente del auto) fue derogada. Bajo las normativas vigentes (Disposición DNRPA 323/2019 y modificatorias), las unidades de arrastre deben contar con su propia identificación oficial:</p>
+      <ul>
+        <li><strong>Categoría O1 (Recreativo, hasta 750 kg):</strong> Placa tráiler oficial unificada otorgada por el registro de la propiedad automotor (DNRPA) previo trámite de homologación.</li>
+        <li><strong>Categoría O2 (751 kg a 3500 kg) y todo uso comercial:</strong> Requieren obligatoriamente la Placa Oficial Roja autónoma.</li>
+      </ul>
+    </div>
+  </details>
+
+  <details class="faq">
+    <summary>
+      <span class="faq__num">Q2</span>
+      ¿Cuál es la diferencia entre LCM y CSV? ¿Cuál me corresponde exigir?
+      <span class="faq__chevron"></span>
+    </summary>
+    <div class="faq__body">
+      <p><strong>Es el punto crítico para evitar estafas.</strong></p>
+      <ul>
+        <li><strong>LCM (Licencia de Configuración de Modelo):</strong> Es el “acta de nacimiento” que emite el Estado Nacional para unidades fabricadas desde 2022 en adelante. Certifica que el modelo fue ensayado en laboratorio y cumple con estándares de fábrica. Si comprás un tráiler nuevo, exigí que tenga LCM.</li>
+        <li><strong>CSV (Certificado de Seguridad Vehicular):</strong> Es una vía de excepción (gestionada mediante informe de un ingeniero matriculado y aprobada por la ANSV) destinada a unidades usadas (fabricadas hasta 2021 inclusive) o reformas particulares.</li>
+      </ul>
+      <div class="callout callout--alert">
+        <strong>⚠ Alerta:</strong> Registrar una unidad nueva de origen clandestino mediante un CSV “comprado” es un fraude técnico y legal que anula la cobertura del seguro ante un siniestro.
+      </div>
+    </div>
+  </details>
+
+  <details class="faq">
+    <summary>
+      <span class="faq__num">Q3</span>
+      Compré un furgón y lo equipé como motorhome. ¿Puedo asegurarlo y circular normalmente?
+      <span class="faq__chevron"></span>
+    </summary>
+    <div class="faq__body">
+      <p><strong>No, si no realizaste el trámite de “Cambio de Tipo”.</strong> Circular y asegurar una unidad como “Furgón de Carga” cuando en su interior posee instalaciones de gas, agua, electricidad y mobiliario fijo constituye <strong>Reticencia</strong> (falsa declaración del riesgo).</p>
+      <p>En caso de siniestro (por ejemplo, un incendio originado en la cocina), la aseguradora rechazará el siniestro por agravamiento de riesgo no declarado. El título de propiedad debe indicar de manera expresa el tipo: <strong>“Casa Rodante Motorizada”</strong> o <strong>“Casa Rodante Autopropulsada”</strong>.</p>
+    </div>
+  </details>
+
+  <details class="faq">
+    <summary>
+      <span class="faq__num">Q4</span>
+      ¿Qué categoría de licencia de conducir necesito para manejar un Motorhome?
+      <span class="faq__chevron"></span>
+    </summary>
+    <div class="faq__body">
+      <p>El factor determinante no es el tamaño, sino el <strong>Peso Bruto Total (PBT)</strong> de la unidad (que figura en la cédula, y se calcula sumando la tara del vehículo más su capacidad de carga máxima):</p>
+      <ul>
+        <li><strong>Hasta 3.500 kg de PBT:</strong> Se puede conducir con licencia común Clase B1 / B2 (recreativo).</li>
+        <li><strong>Más de 3.500 kg de PBT (Unidades duales, camiones, etc.):</strong> Es obligatorio contar con licencia Clase C1 (profesional/pesados).</li>
+      </ul>
+      <div class="callout callout--alert">
+        <strong>⚠ Consecuencia:</strong> Conducir un motorhome pesado con licencia B2 equivale legalmente a no tener licencia habilitante; la compañía de seguros declinará la cobertura por “Falta de idoneidad conductiva”.
+      </div>
+    </div>
+  </details>
+
+  <details class="faq">
+    <summary>
+      <span class="faq__num">Q5</span>
+      Si mi tráiler se desengancha en ruta y causa un daño, ¿qué seguro responde?
+      <span class="faq__chevron"></span>
+    </summary>
+    <div class="faq__body">
+      <p>El remolque debe contar con su propia póliza de <strong>Responsabilidad Civil (RC) de arrastre</strong>. Sin embargo, legalmente, el conjunto (auto tractor + remolque) se considera una sola unidad de riesgo en movimiento.</p>
+      <div class="callout callout--ok">
+        <strong>✔ Recomendación FATCRA:</strong> Es indispensable suscribir el seguro del vehículo tractor y del remolque en la misma compañía. Esto evita los usuales “conflictos de repetición” y rechazos cruzados entre aseguradoras en siniestros complejos.
+      </div>
+    </div>
+  </details>
+</main>
+
+<footer>
+  FATCRA · FAQs Homologación Vehicular 2026 — Publicado en <a href="https://todomotorhome.ar">todomotorhome.ar</a>
+</footer>
+
+</body>
+</html>
