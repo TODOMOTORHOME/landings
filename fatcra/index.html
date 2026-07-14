@@ -50,16 +50,11 @@
   .tmh-logo{
     display:flex;
     align-items:center;
-    gap:8px;
     flex-shrink:0;
-    font-size:1.35rem;
-    letter-spacing:-.02em;
     padding-right:24px;
     border-right:1px solid var(--line);
   }
-  .tmh-logo svg{width:34px;height:34px;display:block;}
-  .tmh-logo b{font-weight:800;}
-  .tmh-logo span{font-weight:400;}
+  .tmh-logo img{height:36px;width:auto;display:block;}
   .tmh-search{
     flex:1;
     max-width:520px;
@@ -71,17 +66,11 @@
     padding:9px 18px;
     color:#9a9a9a;
     background:#fff;
-  }
-  .tmh-search svg{width:18px;height:18px;flex-shrink:0;stroke:var(--gold);}
-  .tmh-search input{
-    border:none;
-    outline:none;
-    width:100%;
     font-size:.95rem;
-    background:transparent;
-    color:var(--ink);
+    transition:border-color .15s;
   }
-  .tmh-search input::placeholder{color:#9a9a9a;}
+  .tmh-search:hover{border-color:var(--gold);}
+  .tmh-search svg{width:18px;height:18px;flex-shrink:0;stroke:var(--gold);}
   .tmh-nav{
     margin-left:auto;
     display:flex;
@@ -94,15 +83,61 @@
   .tmh-nav a:hover{color:var(--gold-dark);}
   .tmh-nav a.tmh-nav--gold{color:var(--gold);font-weight:600;}
   .tmh-nav a.tmh-nav--gold:hover{color:var(--gold-dark);}
-  .tmh-nav .tmh-caret::after{
+  .tmh-dropdown{position:relative;}
+  .tmh-dropdown > button{
+    font:inherit;
+    color:var(--ink);
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding:0;
+    display:inline-flex;
+    align-items:center;
+  }
+  .tmh-dropdown > button:hover{color:var(--gold-dark);}
+  .tmh-dropdown > button::after{
     content:"";
     display:inline-block;
-    margin-left:6px;
+    margin-left:7px;
     width:7px;height:7px;
     border-right:1.5px solid currentColor;
     border-bottom:1.5px solid currentColor;
     transform:rotate(45deg) translateY(-2px);
+    transition:transform .15s;
   }
+  .tmh-dropdown__menu{
+    position:absolute;
+    top:calc(100% + 14px);
+    left:50%;
+    transform:translateX(-50%);
+    min-width:230px;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+    padding:10px 0;
+    list-style:none;
+    display:none;
+    z-index:60;
+  }
+  .tmh-dropdown__menu::before{
+    content:"";
+    position:absolute;
+    top:-16px;left:0;right:0;height:16px;
+  }
+  .tmh-dropdown:hover .tmh-dropdown__menu,
+  .tmh-dropdown:focus-within .tmh-dropdown__menu{display:block;}
+  .tmh-dropdown:hover > button::after,
+  .tmh-dropdown:focus-within > button::after{transform:rotate(-135deg) translateY(-2px);}
+  .tmh-dropdown__menu a{
+    display:block;
+    padding:9px 22px;
+    color:var(--ink);
+    font-size:.92rem;
+    white-space:nowrap;
+  }
+  .tmh-dropdown__menu a:hover{background:var(--bg-soft);color:var(--gold-dark);}
+  .tmh-dropdown__menu li:first-child a{font-weight:700;}
   @media (max-width:1100px){
     .tmh-nav{gap:16px;font-size:.85rem;}
     .tmh-nav .tmh-hide-md{display:none;}
@@ -110,8 +145,10 @@
   @media (max-width:760px){
     .tmh-header__inner{flex-wrap:wrap;gap:12px;padding:12px 16px;}
     .tmh-logo{border-right:none;padding-right:0;}
+    .tmh-logo img{height:30px;}
     .tmh-nav{margin-left:auto;}
     .tmh-search{order:3;flex-basis:100%;max-width:none;}
+    .tmh-dropdown__menu{left:auto;right:-40px;transform:none;}
   }
 
   /* ============ HERO / LOGOTIPO FATCRA ============ */
@@ -122,32 +159,10 @@
     padding:56px 24px 48px;
   }
   .fatcra-logo{
-    display:inline-flex;
-    flex-direction:column;
-    align-items:center;
-    gap:6px;
-    margin-bottom:28px;
-  }
-  .fatcra-logo__mark{
-    font-size:3rem;
-    font-weight:900;
-    letter-spacing:.18em;
-    color:var(--ink);
-    line-height:1;
-  }
-  .fatcra-logo__mark span{color:var(--gold);}
-  .fatcra-logo__rule{
-    width:100%;
-    height:4px;
-    border-radius:2px;
-    background:linear-gradient(90deg,#74c0fc 0%,var(--gold) 50%,#495057 100%);
-  }
-  .fatcra-logo__sub{
-    font-size:.78rem;
-    letter-spacing:.06em;
-    text-transform:uppercase;
-    color:var(--ink-soft);
-    max-width:420px;
+    display:block;
+    margin:0 auto 28px;
+    width:min(340px,80vw);
+    height:auto;
   }
   .hero h1{
     font-size:clamp(1.6rem,4vw,2.4rem);
@@ -266,38 +281,36 @@
 <!-- Header estilo todomotorhome.ar -->
 <header class="tmh-header">
   <div class="tmh-header__inner">
-    <a class="tmh-logo" href="https://todomotorhome.ar" aria-label="Todo Motorhome">
-      <svg viewBox="0 0 40 40" aria-hidden="true">
-        <path d="M6 26c6-14 22-16 28-10-8-2-18 1-22 12z" fill="#8a5a2b"/>
-        <path d="M9 29c5-11 19-13 25-8-8-1-16 2-20 11z" fill="#c99b2f"/>
-        <path d="M13 31c4-8 14-10 19-6-6 0-12 2-15 9z" fill="#e8c161"/>
-        <path d="M17 33c3-5 9-6 12-4-4 0-8 2-9 6z" fill="#f3e3b5"/>
-      </svg>
-      <div><b>todo</b><span>motorhome</span></div>
+    <a class="tmh-logo" href="https://www.todomotorhome.ar" aria-label="Todo Motorhome">
+      <img src="todomotorhomelogo.avif" alt="Todo Motorhome">
     </a>
-    <div class="tmh-search">
+    <a class="tmh-search" href="https://www.todomotorhome.ar/s?category=all" aria-label="Buscar en Todo Motorhome">
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" aria-hidden="true">
         <circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>
       </svg>
-      <input type="text" placeholder="Buscar en Todo Motorhome..." aria-label="Buscar en Todo Motorhome" disabled>
-    </div>
+      <span>Buscar en Todo Motorhome...</span>
+    </a>
     <nav class="tmh-nav" aria-label="Navegación principal">
-      <a class="tmh-nav--gold" href="https://todomotorhome.ar">Publicar anuncio</a>
-      <a class="tmh-hide-md" href="https://todomotorhome.ar">Participá del Censo Rodantero 2025 - 2026</a>
-      <a class="tmh-caret" href="https://todomotorhome.ar">Categorías</a>
-      <a href="https://todomotorhome.ar">Regístrate</a>
-      <a href="https://todomotorhome.ar">Iniciar sesión</a>
+      <a class="tmh-nav--gold" href="https://www.todomotorhome.ar/signup">Publicar anuncio</a>
+      <a class="tmh-hide-md" href="https://www.todomotorhome.ar/censorodantero">Participá del Censo Rodantero 2025 - 2026</a>
+      <div class="tmh-dropdown">
+        <button type="button" aria-haspopup="true">Categorías</button>
+        <ul class="tmh-dropdown__menu">
+          <li><a href="https://www.todomotorhome.ar/s?category=vehiculos&amp;pub_categoryLevel1=vehiculos">Vehículos</a></li>
+          <li><a href="https://www.todomotorhome.ar/s?category=vehiculos&amp;pub_categoryLevel1=accesorios-y-productos">Accesorios y productos</a></li>
+          <li><a href="https://www.todomotorhome.ar/s?category=vehiculos&amp;pub_categoryLevel1=servicios">Servicios</a></li>
+          <li><a href="https://www.todomotorhome.ar/s?category=vehiculos&amp;pub_categoryLevel1=alquiler-y-turismo">Alquiler y Turismo</a></li>
+        </ul>
+      </div>
+      <a href="https://www.todomotorhome.ar/signup">Regístrate</a>
+      <a href="https://www.todomotorhome.ar/login">Iniciar sesión</a>
     </nav>
   </div>
 </header>
 
 <!-- Hero con logotipo FATCRA -->
 <section class="hero">
-  <div class="fatcra-logo">
-    <div class="fatcra-logo__mark">FAT<span>CRA</span></div>
-    <div class="fatcra-logo__rule"></div>
-    <div class="fatcra-logo__sub">Cámara de Fabricantes Argentinos de Tráilers, Casillas Rodantes y Afines</div>
-  </div>
+  <img class="fatcra-logo" src="fatcralogo.svg" alt="FATCRA — Cámara de Fabricantes Argentinos de Tráilers, Casillas Rodantes y Afines">
   <h1>FAQs <em>Homologación Vehicular 2026</em></h1>
   <p>Este documento constituye una herramienta estratégica para la comunicación digital de FATCRA. Está estructurado para resolver dudas técnicas de forma rigurosa y, al mismo tiempo, brindar las bases conceptuales para generar contenido de alto impacto en redes sociales (Instagram, TikTok).</p>
 </section>
@@ -386,7 +399,7 @@
 </main>
 
 <footer>
-  FATCRA · FAQs Homologación Vehicular 2026 — Publicado en <a href="https://todomotorhome.ar">todomotorhome.ar</a>
+  FATCRA · FAQs Homologación Vehicular 2026 — Publicado en <a href="https://www.todomotorhome.ar">todomotorhome.ar</a>
 </footer>
 
 </body>
