@@ -218,6 +218,7 @@ html.censo-unlocked #censo-gate { display: none; }
   .col li:before { content: ''; position: absolute; left: 0; top: 13px; width: 11px; height: 2px; background: var(--muted); }
   .col.warn li:before { background: var(--accent); }
   .col li b { color: var(--ink); font-weight: 700; }
+  .three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 46px; margin-top: 48px; }
 
   /* ---------- barras ---------- */
   .bars { margin-top: 46px; display: flex; flex-direction: column; gap: 17px; }
@@ -256,6 +257,7 @@ html.censo-unlocked #censo-gate { display: none; }
           letter-spacing: -.04em; line-height: 1; font-variant-numeric: tabular-nums; }
   .s.hot .n { color: var(--accent); }
   .s .k { font-size: 21px; color: var(--muted); margin-top: 10px; }
+  .stats.two-col { grid-template-columns: repeat(2, 1fr); max-width: 900px; }
 
   /* ---------- tablas ---------- */
   .tbl { margin-top: 42px; width: 100%; border-collapse: collapse; font-size: 23px; }
@@ -271,6 +273,17 @@ html.censo-unlocked #censo-gate { display: none; }
   .tbl td.m { text-align: left; font-weight: 600; color: var(--ink); }
   .tbl td.hi { color: var(--accent); font-weight: 700; }
   .tbl tbody tr:first-child td { color: var(--ink); font-weight: 600; }
+  .tbl.txt td:last-child, .tbl.txt th:last-child { text-align: left; }
+  .tbl.txt tbody tr:first-child td { font-weight: inherit; color: inherit; }
+  .tbl.txt td.m { font-weight: 600; color: var(--ink); }
+  .tbl.txt td:not(.m) { text-align: left; color: var(--ink-soft); }
+
+  /* ---------- certificado ---------- */
+  .cert-box { width: 380px; aspect-ratio: 5 / 6; border: 2px dashed var(--line); border-radius: 14px;
+              display: flex; align-items: center; justify-content: center; text-align: center;
+              color: var(--muted); font-size: 16px; line-height: 1.4; padding: 24px; overflow: hidden; }
+  .cert-box img { width: 100%; height: 100%; object-fit: contain; border-radius: 12px; }
+  .station.invert .cert-box { border-color: rgba(244,241,236,.22); color: rgba(244,241,236,.5); }
 
   /* ---------- hallazgos ---------- */
   .st-find .hgrid { display: grid; grid-template-columns: 1fr 470px; gap: 84px;
@@ -384,7 +397,88 @@ html.censo-unlocked #censo-gate { display: none; }
   </div>
 </section>
 
-<section class="station st-meta" id="s2" data-name="Metodología" data-x="2300" data-y="0">
+<section class="station st-meta" id="s2a" data-name="Diseño del formulario" data-x="2300" data-y="0">
+  <div class="eyebrow" data-fade>Cómo se hizo</div>
+  <h2 class="display sm" data-split="lines">Preguntas cerradas para medir,<br>abiertas para escuchar</h2>
+  <div class="two" data-fade>
+    <div class="col">
+      <div class="ch">Para poder comparar</div>
+      <ul>
+        <li>Opción múltiple en todo lo cuantificable: vehículo, año, provincia, edad</li>
+        <li>Escalas y rangos en vez de texto libre, para poder sumar respuestas</li>
+        <li>Formulario mobile-first, pensado para completarse desde la ruta</li>
+      </ul>
+    </div>
+    <div class="col">
+      <div class="ch">Para poder escuchar</div>
+      <ul>
+        <li>Campos abiertos sólo donde la experiencia no entra en una casilla</li>
+        <li>Barreras y necesidades se agruparon después en categorías, para graficarlas</li>
+        <li>La lógica del formulario salteaba secciones que no aplicaban a cada perfil</li>
+      </ul>
+    </div>
+  </div>
+  <div class="mark"></div>
+</section>
+
+<section class="station st-meta" id="s2b" data-name="Qué era obligatorio" data-x="2300" data-y="1450">
+  <div class="eyebrow" data-fade>Cómo se hizo</div>
+  <h2 class="display sm" data-split="lines">Lo obligatorio fue<br>lo mínimo para que sirva</h2>
+  <div class="two" data-fade>
+    <div class="col warn">
+      <div class="ch">Obligatorio</div>
+      <ul>
+        <li>Nombre, DNI y provincia de residencia del titular</li>
+        <li>Patente, marca, modelo y año del vehículo</li>
+        <li>Al menos una respuesta sobre hábitos de viaje: duración, pernocta o kilometraje</li>
+      </ul>
+    </div>
+    <div class="col">
+      <div class="ch">Optativo</div>
+      <ul>
+        <li>Detalles de equipamiento y modificaciones del vehículo</li>
+        <li>Comentarios abiertos sobre barreras y necesidades</li>
+        <li>Datos de contacto para recibir novedades del proyecto</li>
+      </ul>
+    </div>
+  </div>
+  <div class="mark"></div>
+</section>
+
+<section class="station st-meta" id="s2c" data-name="Por qué datos reales" data-x="4600" data-y="1450">
+  <div class="eyebrow" data-fade>Cómo se hizo</div>
+  <h2 class="display sm" data-split="lines">Por qué pedimos nombre,<br>DNI y patente</h2>
+  <p class="lead" data-fade>Un censo sin identidad verificable es fácil de inflar o repetir. Pedir el DNI del
+     titular y la patente del vehículo evita respuestas duplicadas y perfiles falsos — y son los mismos datos
+     que exige el Estado para políticas públicas: sin ellos, el reclamo pierde peso frente a organismos oficiales.</p>
+  <div class="note" data-fade>Los datos personales no se publican en ningún informe: se usan sólo para validar
+     cada respuesta y se presentan siempre agregados, como en este documento.</div>
+  <div class="mark"></div>
+</section>
+
+<section class="station st-meta" id="s2d" data-name="Tres partes del formulario" data-x="4600" data-y="2900">
+  <div class="eyebrow" data-fade>Cómo se hizo</div>
+  <h2 class="display sm" data-split="lines">Un formulario,<br>tres partes</h2>
+  <div class="three" data-fade>
+    <div class="col">
+      <div class="ch">1 · Datos del titular</div>
+      <ul><li>Identidad, contacto y provincia de residencia</li></ul>
+    </div>
+    <div class="col">
+      <div class="ch">2 · Vehículos registrados</div>
+      <ul><li>Patente, marca, modelo, año y equipamiento — uno por cada vehículo del titular</li></ul>
+    </div>
+    <div class="col">
+      <div class="ch">3 · Hábitos de viaje</div>
+      <ul><li>Duración, pernocta, kilometraje, barreras y necesidades</li></ul>
+    </div>
+  </div>
+  <p class="note" data-fade>Separar identidad, vehículo y hábitos permitió que un mismo titular censara varios
+     vehículos sin repetir sus datos personales, y evitó un formulario largo y confuso en un solo bloque.</p>
+  <div class="mark"></div>
+</section>
+
+<section class="station st-meta" id="s2" data-name="Metodología" data-x="6900" data-y="2900">
   <div class="eyebrow" data-fade>Cómo se hizo</div>
   <h2 class="display sm" data-split="lines">Qué mide este censo<br>y qué no mide</h2>
   <div class="two" data-fade>
@@ -410,7 +504,7 @@ html.censo-unlocked #censo-gate { display: none; }
   <div class="mark"></div>
 </section>
 
-<section class="station st-time" id="s3" data-name="Crecimiento" data-x="2300" data-y="1450" data-scene="chart">
+<section class="station st-time" id="s3" data-name="Crecimiento" data-x="6900" data-y="4350" data-scene="chart">
   <div class="eyebrow">Nueve meses de relevamiento</div>
   <h2 class="display sm" data-split="lines">De cero a 2.203<br>respuestas</h2>
   <div class="timeline"><div class="tlbar" data-row><i class="fil" data-w="1.6"></i><span class="tlv" data-num="23" data-dec="0" data-suf="">23</span><span class="tll">Oct 25</span></div><div class="tlbar" data-row><i class="fil" data-w="82.0"></i><span class="tlv" data-num="1216" data-dec="0" data-suf="">1.216</span><span class="tll">Nov 25</span></div><div class="tlbar" data-row><i class="fil" data-w="4.2"></i><span class="tlv" data-num="62" data-dec="0" data-suf="">62</span><span class="tll">Dic 25</span></div><div class="tlbar" data-row><i class="fil" data-w="0.6"></i><span class="tlv" data-num="9" data-dec="0" data-suf="">9</span><span class="tll">Ene 26</span></div><div class="tlbar" data-row><i class="fil" data-w="6.7"></i><span class="tlv" data-num="100" data-dec="0" data-suf="">100</span><span class="tll">Feb 26</span></div><div class="tlbar" data-row><i class="fil" data-w="21.8"></i><span class="tlv" data-num="323" data-dec="0" data-suf="">323</span><span class="tll">Mar 26</span></div><div class="tlbar" data-row><i class="fil" data-w="8.6"></i><span class="tlv" data-num="128" data-dec="0" data-suf="">128</span><span class="tll">Abr 26</span></div><div class="tlbar" data-row><i class="fil" data-w="16.5"></i><span class="tlv" data-num="245" data-dec="0" data-suf="">245</span><span class="tll">May 26</span></div><div class="tlbar" data-row><i class="fil" data-w="4.7"></i><span class="tlv" data-num="70" data-dec="0" data-suf="">70</span><span class="tll">Jun 26</span></div><div class="tlbar" data-row><i class="fil" data-w="1.8"></i><span class="tlv" data-num="27" data-dec="0" data-suf="">27</span><span class="tll">Jul 26</span></div></div>
@@ -418,14 +512,65 @@ html.censo-unlocked #censo-gate { display: none; }
   <div class="mark"></div>
 </section>
 
-<section class="station st-div invert" id="s4" data-name="Parte 1" data-x="4600" data-y="1450">
+<section class="station st-meta" id="s3a" data-name="El incentivo de ACA" data-x="9200" data-y="4350">
+  <div class="eyebrow" data-fade>Por qué participar</div>
+  <h2 class="display sm" data-split="lines">Un beneficio real<br>para quien se sube</h2>
+  <p class="lead" data-fade>Completar el censo no fue sólo un gesto: quienes lo hicieron accedieron a un
+     beneficio concreto de ACA por asociarse.</p>
+  <div class="stats two-col" data-fade>
+    <div class="s hot"><div class="n">50%</div><div class="k">off en la cuota ACA durante 3 meses</div></div>
+    <div class="s hot"><div class="n">$48.000</div><div class="k">en vales de combustible</div></div>
+  </div>
+  <div class="mark"></div>
+</section>
+
+<section class="station st-meta" id="s3b" data-name="Certificado oficial" data-x="9200" data-y="5800">
+  <div class="eyebrow" data-fade>Reconocimiento</div>
+  <h2 class="display sm" data-split="lines">Un certificado<br>para cada rodantero censado</h2>
+  <div class="rfind" data-fade>
+    <div class="cert-box"><!-- CERT_IMAGE_PLACEHOLDER -->Certificado<br>(imagen pendiente de subir)</div>
+    <div class="rtxt">Cada persona censada recibió un certificado oficial de "Rodantero Censado", junto a ACA
+       y FECRA. Muchos lo compartieron por su cuenta en redes sociales — la mejor difusión que puede tener
+       un censo es la que hace la propia comunidad.</div>
+  </div>
+  <div class="mark"></div>
+</section>
+
+<section class="station st-meta" id="s3c" data-name="Dónde lo presentamos" data-x="11500" data-y="5800">
+  <div class="eyebrow" data-fade>En el camino</div>
+  <h2 class="display sm" data-split="lines">Lo presentamos<br>cara a cara</h2>
+  <table class="tbl txt dense" data-fade>
+    <thead><tr><th>Evento</th><th>Lugar</th></tr></thead>
+    <tbody>
+      <tr><td class="m">Exporodantero 2025 — Lanzamiento del censo</td><td>Ciudad de Buenos Aires</td></tr>
+      <tr><td class="m">Zapparancho — Atrapa tu Sueño 2025</td><td>Villars, Buenos Aires</td></tr>
+      <tr><td class="m">1° Encuentro Motorhome y Campismo, Complejo Miami</td><td>Santa Rosa de Calamuchita, Córdoba</td></tr>
+      <tr><td class="m">Expo AutocampingTV</td><td>Gualeguaychú, Entre Ríos</td></tr>
+      <tr><td class="m">Zapparancho — 2ª edición Fiesta Nacional del Rodantero</td><td>Villars, Buenos Aires</td></tr>
+    </tbody>
+  </table>
+  <div class="note" data-fade>Todavía quedan varios eventos más antes de Exporodantero 2026, donde se van a
+     presentar en público los resultados finales del censo.</div>
+  <div class="mark"></div>
+</section>
+
+<section class="station st-meta" id="s3d" data-name="Más allá de los eventos" data-x="11500" data-y="7250">
+  <div class="eyebrow" data-fade>En el camino</div>
+  <h2 class="display sm" data-split="lines">Un QR en los campings,<br>siempre disponible</h2>
+  <p class="lead" data-fade>Más allá de los eventos presenciales, distintos campings de todo el país tienen un
+     cartel con un código QR que lleva directo al censo. Así, cualquier rodantero puede sumarse en el momento,
+     sin esperar a la próxima feria.</p>
+  <div class="mark"></div>
+</section>
+
+<section class="station st-div invert" id="s4" data-name="Parte 1" data-x="13800" data-y="7250">
   <div class="eyebrow" data-fade>Parte 1</div>
   <h2 class="display" data-split="lines">El retrato<br>general</h2>
   <p class="lead" data-fade>Quiénes somos, qué manejamos, cómo viajamos y qué nos falta.</p>
   <div class="mark"></div>
 </section>
 
-<section class="station st-stat" id="s5" data-name="Alcance" data-x="4600" data-y="2900" data-scene="chart">
+<section class="station st-stat" id="s5" data-name="Alcance" data-x="13800" data-y="8700" data-scene="chart">
   <div class="eyebrow">Quiénes somos</div>
   <h2 class="display sm" data-split="lines">La comunidad, en números</h2>
   <div class="stats">
@@ -439,7 +584,7 @@ html.censo-unlocked #censo-gate { display: none; }
   <div class="mark"></div>
 </section>
 
-<section class="station st-chart" id="s6" data-name="Edad" data-x="6900" data-y="2900" data-scene="chart">
+<section class="station st-chart" id="s6" data-name="Edad" data-x="16100" data-y="8700" data-scene="chart">
   <div class="eyebrow">Quiénes somos</div>
   <h2 class="display sm" data-split="lines">Seis de cada diez<br>rodanteros tienen 55 años o más</h2>
   <div class="bars">
@@ -454,7 +599,7 @@ html.censo-unlocked #censo-gate { display: none; }
   <div class="mark"></div>
 </section>
 
-<section class="station st-chart" id="s7" data-name="Con quién viajan" data-x="6900" data-y="4350" data-scene="chart">
+<section class="station st-chart" id="s7" data-name="Con quién viajan" data-x="16100" data-y="10150" data-scene="chart">
   <div class="eyebrow">Quiénes somos</div>
   <h2 class="display sm" data-split="lines">El rodantero argentino<br>viaja de a dos</h2>
   <div class="bars">
@@ -468,7 +613,7 @@ html.censo-unlocked #censo-gate { display: none; }
   <div class="mark"></div>
 </section>
 
-<section class="station st-chart" id="s8" data-name="Distribución provincial" data-x="9200" data-y="4350" data-scene="chart">
+<section class="station st-chart" id="s8" data-name="Distribución provincial" data-x="18400" data-y="10150" data-scene="chart">
   <div class="eyebrow">Quiénes somos</div>
   <h2 class="display sm" data-split="lines">Casi la mitad del censo<br>vive en Buenos Aires</h2>
   <div class="bars compact tight">
@@ -489,7 +634,7 @@ html.censo-unlocked #censo-gate { display: none; }
   <div class="mark"></div>
 </section>
 
-<section class="station st-chart" id="s9" data-name="Tipo de vehículo" data-x="9200" data-y="5800" data-scene="chart">
+<section class="station st-chart" id="s9" data-name="Tipo de vehículo" data-x="18400" data-y="11600" data-scene="chart">
   <div class="eyebrow">Qué manejamos</div>
   <h2 class="display sm" data-split="lines">La van furgón domina<br>el parque rodante</h2>
   <div class="bars compact">
@@ -507,7 +652,7 @@ html.censo-unlocked #censo-gate { display: none; }
   <div class="mark"></div>
 </section>
 
-<section class="station st-chart" id="s10" data-name="Marcas" data-x="11500" data-y="5800" data-scene="chart">
+<section class="station st-chart" id="s10" data-name="Marcas" data-x="20700" data-y="11600" data-scene="chart">
   <div class="eyebrow">Qué manejamos</div>
   <h2 class="display sm" data-split="lines">Mercedes-Benz y Renault<br>son casi cuatro de cada diez</h2>
   <div class="bars compact">
@@ -526,7 +671,7 @@ html.censo-unlocked #censo-gate { display: none; }
   <div class="mark"></div>
 </section>
 
-<section class="station st-tbl" id="s11" data-name="Modelos" data-x="11500" data-y="7250" data-scene="chart">
+<section class="station st-tbl" id="s11" data-name="Modelos" data-x="20700" data-y="13050" data-scene="chart">
   <div class="eyebrow">Qué manejamos</div>
   <h2 class="display sm" data-split="lines">La Sprinter es el vehículo<br>rodantero argentino</h2>
   <table class="tbl dense">
@@ -537,7 +682,7 @@ html.censo-unlocked #censo-gate { display: none; }
   <div class="mark"></div>
 </section>
 
-<section class="station st-chart" id="s12" data-name="Antigüedad" data-x="13800" data-y="7250" data-scene="chart">
+<section class="station st-chart" id="s12" data-name="Antigüedad" data-x="23000" data-y="13050" data-scene="chart">
   <div class="eyebrow">Qué manejamos</div>
   <h2 class="display sm" data-split="lines">Un parque artesanal:<br>37% es anterior a 2010</h2>
   <div class="bars">
@@ -551,7 +696,7 @@ html.censo-unlocked #censo-gate { display: none; }
   <div class="mark"></div>
 </section>
 
-<section class="station st-chart" id="s13" data-name="Plazas" data-x="13800" data-y="8700" data-scene="chart">
+<section class="station st-chart" id="s13" data-name="Plazas" data-x="23000" data-y="14500" data-scene="chart">
   <div class="eyebrow">Qué manejamos</div>
   <h2 class="display sm" data-split="lines">Casi la mitad del parque<br>duerme sólo dos personas</h2>
   <div class="bars">
@@ -566,7 +711,7 @@ html.censo-unlocked #censo-gate { display: none; }
   <div class="mark"></div>
 </section>
 
-<section class="station st-chart" id="s14" data-name="Duración" data-x="16100" data-y="8700" data-scene="chart">
+<section class="station st-chart" id="s14" data-name="Duración" data-x="25300" data-y="14500" data-scene="chart">
   <div class="eyebrow">Cómo viajamos</div>
   <h2 class="display sm" data-split="lines">El viaje medio manda:<br>de cinco días a un mes</h2>
   <div class="bars">
@@ -579,7 +724,7 @@ html.censo-unlocked #censo-gate { display: none; }
   <div class="mark"></div>
 </section>
 
-<section class="station st-chart" id="s15" data-name="Kilometraje" data-x="16100" data-y="10150" data-scene="chart">
+<section class="station st-chart" id="s15" data-name="Kilometraje" data-x="25300" data-y="15950" data-scene="chart">
   <div class="eyebrow">Cómo viajamos</div>
   <h2 class="display sm" data-split="lines">Ocho de cada diez recorren<br>menos de 15.000 km al año</h2>
   <div class="bars">
@@ -592,7 +737,7 @@ html.censo-unlocked #censo-gate { display: none; }
   <div class="mark"></div>
 </section>
 
-<section class="station st-chart" id="s16" data-name="Pernocta" data-x="18400" data-y="10150" data-scene="chart">
+<section class="station st-chart" id="s16" data-name="Pernocta" data-x="27600" data-y="15950" data-scene="chart">
   <div class="eyebrow">Cómo viajamos</div>
   <h2 class="display sm" data-split="lines">Nadie pernocta<br>en un solo tipo de lugar</h2>
   <div class="bars">
@@ -606,7 +751,7 @@ html.censo-unlocked #censo-gate { display: none; }
   <div class="mark"></div>
 </section>
 
-<section class="station st-chart" id="s17" data-name="Zonas" data-x="18400" data-y="11600" data-scene="chart">
+<section class="station st-chart" id="s17" data-name="Zonas" data-x="27600" data-y="17400" data-scene="chart">
   <div class="eyebrow">Cómo viajamos</div>
   <h2 class="display sm" data-split="lines">Patagonia es el destino<br>que todos quieren</h2>
   <div class="bars">
@@ -624,7 +769,7 @@ html.censo-unlocked #censo-gate { display: none; }
   <div class="mark"></div>
 </section>
 
-<section class="station st-chart" id="s18" data-name="Barreras" data-x="20700" data-y="11600" data-scene="chart">
+<section class="station st-chart" id="s18" data-name="Barreras" data-x="29900" data-y="17400" data-scene="chart">
   <div class="eyebrow">Qué nos falta</div>
   <h2 class="display sm" data-split="lines">Las tres barreras principales<br>son de infraestructura</h2>
   <div class="bars compact">
@@ -641,7 +786,7 @@ html.censo-unlocked #censo-gate { display: none; }
   <div class="mark"></div>
 </section>
 
-<section class="station st-chart" id="s19" data-name="Servicios" data-x="20700" data-y="13050" data-scene="chart">
+<section class="station st-chart" id="s19" data-name="Servicios" data-x="29900" data-y="18850" data-scene="chart">
   <div class="eyebrow">Qué nos falta</div>
   <h2 class="display sm" data-split="lines">Agua y saneamiento,<br>muy por encima del confort</h2>
   <div class="bars compact">
@@ -658,7 +803,7 @@ html.censo-unlocked #censo-gate { display: none; }
   <div class="mark"></div>
 </section>
 
-<section class="station st-chart" id="s20" data-name="Campos abiertos" data-x="23000" data-y="13050" data-scene="chart">
+<section class="station st-chart" id="s20" data-name="Campos abiertos" data-x="32200" data-y="18850" data-scene="chart">
   <div class="eyebrow">Qué nos falta</div>
   <h2 class="display sm" data-split="lines">Lo que escribieron<br>sin que se lo preguntáramos</h2>
   <div class="bars compact"><div class="row" data-row><div class="lbl">Mascotas — campings y áreas que no las aceptan</div><div class="trk"><i class="fil" data-w="100.0"></i></div><div class="val" data-num="21" data-dec="0" data-suf="">21</div></div><div class="row" data-row><div class="lbl">Prohibiciones y vacío normativo para pernoctar</div><div class="trk"><i class="fil" data-w="47.6"></i></div><div class="val" data-num="10" data-dec="0" data-suf="">10</div></div><div class="row" data-row><div class="lbl">Duchas</div><div class="trk"><i class="fil" data-w="23.8"></i></div><div class="val" data-num="5" data-dec="0" data-suf="">5</div></div><div class="row" data-row><div class="lbl">Seguros y asistencia mecánica en ruta</div><div class="trk"><i class="fil" data-w="14.3"></i></div><div class="val" data-num="3" data-dec="0" data-suf="">3</div></div><div class="row" data-row><div class="lbl">Accesibilidad y salud (oxígeno-dependientes, movilidad reducida)</div><div class="trk"><i class="fil" data-w="14.3"></i></div><div class="val" data-num="3" data-dec="0" data-suf="">3</div></div></div>
@@ -670,14 +815,14 @@ html.censo-unlocked #censo-gate { display: none; }
   <div class="mark"></div>
 </section>
 
-<section class="station st-div invert" id="s21" data-name="Parte 2" data-x="23000" data-y="14500">
+<section class="station st-div invert" id="s21" data-name="Parte 2" data-x="32200" data-y="20300">
   <div class="eyebrow" data-fade>Parte 2</div>
   <h2 class="display" data-split="lines">Siete<br>hallazgos</h2>
   <p class="lead" data-fade>Lo que los datos dicen cuando se los mira juntos.</p>
   <div class="mark"></div>
 </section>
 
-<section class="station st-find invert" id="s22" data-name="Hallazgo 01" data-x="25300" data-y="14500">
+<section class="station st-find invert" id="s22" data-name="Hallazgo 01" data-x="34500" data-y="20300">
       <div class="eyebrow" data-fade>Hallazgo 01</div>
       <h2 class="display sm" data-split="lines">El reclamo es infraestructura,<br>no precio</h2>
       <div class="hgrid">
@@ -687,7 +832,7 @@ html.censo-unlocked #censo-gate { display: none; }
   <div class="mark"></div>
 </section>
 
-<section class="station st-find invert" id="s23" data-name="Hallazgo 02" data-x="25300" data-y="15950">
+<section class="station st-find invert" id="s23" data-name="Hallazgo 02" data-x="34500" data-y="21750">
       <div class="eyebrow" data-fade>Hallazgo 02</div>
       <h2 class="display sm" data-split="lines">Agua y saneamiento<br>antes que confort</h2>
       <div class="hgrid">
@@ -697,7 +842,7 @@ html.censo-unlocked #censo-gate { display: none; }
   <div class="mark"></div>
 </section>
 
-<section class="station st-find invert" id="s24" data-name="Hallazgo 03" data-x="27600" data-y="15950">
+<section class="station st-find invert" id="s24" data-name="Hallazgo 03" data-x="36800" data-y="21750">
       <div class="eyebrow" data-fade>Hallazgo 03</div>
       <h2 class="display sm" data-split="lines">Una comunidad madura,<br>no una moda joven</h2>
       <div class="hgrid">
@@ -707,7 +852,7 @@ html.censo-unlocked #censo-gate { display: none; }
   <div class="mark"></div>
 </section>
 
-<section class="station st-find invert" id="s25" data-name="Hallazgo 04" data-x="27600" data-y="17400">
+<section class="station st-find invert" id="s25" data-name="Hallazgo 04" data-x="36800" data-y="23200">
       <div class="eyebrow" data-fade>Hallazgo 04</div>
       <h2 class="display sm" data-split="lines">A más edad, más viaje largo<br>y más dependencia de servicios</h2>
       <div class="hgrid">
@@ -717,7 +862,7 @@ html.censo-unlocked #censo-gate { display: none; }
   <div class="mark"></div>
 </section>
 
-<section class="station st-find invert" id="s26" data-name="Hallazgo 05" data-x="29900" data-y="17400">
+<section class="station st-find invert" id="s26" data-name="Hallazgo 05" data-x="39100" data-y="23200">
       <div class="eyebrow" data-fade>Hallazgo 05</div>
       <h2 class="display sm" data-split="lines">El parque es artesanal<br>y envejecido</h2>
       <div class="hgrid">
@@ -727,7 +872,7 @@ html.censo-unlocked #censo-gate { display: none; }
   <div class="mark"></div>
 </section>
 
-<section class="station st-find invert" id="s27" data-name="Hallazgo 06" data-x="29900" data-y="18850">
+<section class="station st-find invert" id="s27" data-name="Hallazgo 06" data-x="39100" data-y="24650">
       <div class="eyebrow" data-fade>Hallazgo 06</div>
       <h2 class="display sm" data-split="lines">Nadie pernocta<br>en un solo tipo de lugar</h2>
       <div class="hgrid">
@@ -737,7 +882,7 @@ html.censo-unlocked #censo-gate { display: none; }
   <div class="mark"></div>
 </section>
 
-<section class="station st-find invert" id="s28" data-name="Hallazgo 07" data-x="32200" data-y="18850">
+<section class="station st-find invert" id="s28" data-name="Hallazgo 07" data-x="41400" data-y="24650">
       <div class="eyebrow" data-fade>Hallazgo 07</div>
       <h2 class="display sm" data-split="lines">Mascotas:<br>el reclamo que nadie preguntó</h2>
       <div class="hgrid">
@@ -747,7 +892,7 @@ html.censo-unlocked #censo-gate { display: none; }
   <div class="mark"></div>
 </section>
 
-<section class="station st-div invert" id="s29" data-name="Parte 3" data-x="32200" data-y="20300">
+<section class="station st-div invert" id="s29" data-name="Parte 3" data-x="41400" data-y="26100">
   <div class="eyebrow" data-fade>Parte 3</div>
   <h2 class="display" data-split="lines">El país<br>no es uno solo</h2>
   <p class="lead" data-fade>Las mismas preguntas, cruzadas por región. Los promedios nacionales
@@ -755,7 +900,7 @@ html.censo-unlocked #censo-gate { display: none; }
   <div class="mark"></div>
 </section>
 
-<section class="station st-tbl" id="s30" data-name="Tablero regional" data-x="34500" data-y="20300" data-scene="chart">
+<section class="station st-tbl" id="s30" data-name="Tablero regional" data-x="43700" data-y="26100" data-scene="chart">
   <div class="eyebrow">Comparativo</div>
   <h2 class="display sm" data-split="lines">Las cinco regiones,<br>lado a lado</h2>
   <table class="tbl wide">
@@ -767,7 +912,7 @@ html.censo-unlocked #censo-gate { display: none; }
   <div class="mark"></div>
 </section>
 
-<section class="station st-region" id="s31" data-name="Buenos Aires / Costa Atlántica" data-x="34500" data-y="21750">
+<section class="station st-region" id="s31" data-name="Buenos Aires / Costa Atlántica" data-x="43700" data-y="27550">
       <div class="eyebrow" data-fade>Región · 55,4% del censo</div>
       <h2 class="display sm" data-split="lines">Buenos Aires / Costa Atlántica</h2>
       <div class="rmeta" data-fade>Buenos Aires · CABA
@@ -786,7 +931,7 @@ html.censo-unlocked #censo-gate { display: none; }
   <div class="mark"></div>
 </section>
 
-<section class="station st-region" id="s32" data-name="Litoral" data-x="36800" data-y="21750">
+<section class="station st-region" id="s32" data-name="Litoral" data-x="46000" data-y="27550">
       <div class="eyebrow" data-fade>Región · 17,4% del censo</div>
       <h2 class="display sm" data-split="lines">Litoral</h2>
       <div class="rmeta" data-fade>Santa Fe · Entre Ríos · Misiones · Corrientes · Chaco · Formosa
@@ -805,7 +950,7 @@ html.censo-unlocked #censo-gate { display: none; }
   <div class="mark"></div>
 </section>
 
-<section class="station st-region" id="s33" data-name="Patagonia" data-x="36800" data-y="23200">
+<section class="station st-region" id="s33" data-name="Patagonia" data-x="46000" data-y="29000">
       <div class="eyebrow" data-fade>Región · 11,5% del censo</div>
       <h2 class="display sm" data-split="lines">Patagonia</h2>
       <div class="rmeta" data-fade>Neuquén · Río Negro · Chubut · Santa Cruz · Tierra del Fuego
@@ -824,7 +969,7 @@ html.censo-unlocked #censo-gate { display: none; }
   <div class="mark"></div>
 </section>
 
-<section class="station st-region" id="s34" data-name="Centro" data-x="39100" data-y="23200">
+<section class="station st-region" id="s34" data-name="Centro" data-x="48300" data-y="29000">
       <div class="eyebrow" data-fade>Región · 9,7% del censo</div>
       <h2 class="display sm" data-split="lines">Centro</h2>
       <div class="rmeta" data-fade>Córdoba · La Pampa
@@ -843,7 +988,7 @@ html.censo-unlocked #censo-gate { display: none; }
   <div class="mark"></div>
 </section>
 
-<section class="station st-region" id="s35" data-name="Cuyo y Norte" data-x="39100" data-y="24650">
+<section class="station st-region" id="s35" data-name="Cuyo y Norte" data-x="48300" data-y="30450">
       <div class="eyebrow" data-fade>Región · 6,0% del censo</div>
       <h2 class="display sm" data-split="lines">Cuyo y Norte</h2>
       <div class="rmeta" data-fade>Mendoza · San Juan · San Luis · Salta · Jujuy · Tucumán · Santiago del Estero · Catamarca · La Rioja
@@ -862,29 +1007,51 @@ html.censo-unlocked #censo-gate { display: none; }
   <div class="mark"></div>
 </section>
 
-<section class="station st-concl invert" id="s36" data-name="Conclusiones" data-x="41400" data-y="24650" data-scene="chart">
-  <div class="eyebrow" data-fade>Cierre</div>
-  <h2 class="display sm" data-split="lines">Cuatro conclusiones<br>para la agenda</h2>
-  <div class="concl">
-    <div class="c" data-row><span class="num">01</span><div class="ctx">
-      <b>La prioridad es sanitaria y vial.</b> Agua potable, descarte de aguas y estado de
-      caminos concentran el reclamo. Cualquier inversión que no empiece por ahí resuelve
-      un problema que la comunidad no puso primero.</div></div>
-    <div class="c" data-row><span class="num">02</span><div class="ctx">
-      <b>Hay que legislar la pernocta mixta.</b> Estación de servicio, lugar libre y camping
-      conviven empatados. Una norma que habilite un solo modo deja afuera a dos tercios.</div></div>
-    <div class="c" data-row><span class="num">03</span><div class="ctx">
-      <b>El envejecimiento es una oportunidad, no un problema.</b> A mayor edad, más viajes
-      largos — pero menos capacidad de pernocta agreste. Las áreas equipadas son
-      infraestructura de accesibilidad.</div></div>
-    <div class="c" data-row><span class="num">04</span><div class="ctx">
-      <b>Las regiones necesitan políticas distintas.</b> Patagonia pide saneamiento,
-      Cuyo y Norte piden seguridad y áreas, el Litoral tiene el parque más viejo del país.</div></div>
-  </div>
+<section class="station st-find invert" id="s36a" data-name="Conclusión 01" data-x="50600" data-y="30450">
+      <div class="eyebrow" data-fade>Cierre · Conclusión 01</div>
+      <h2 class="display sm" data-split="lines">La prioridad es<br>sanitaria y vial</h2>
+      <div class="hgrid">
+        <p class="lead" data-fade>Agua potable, descarte de aguas y estado de caminos concentran el reclamo.
+           Cualquier inversión que no empiece por ahí resuelve un problema que la comunidad no puso primero.</p>
+        <div class="hbig" data-fade><div class="n">01</div><div class="k">de cuatro conclusiones para la agenda</div></div>
+      </div>
   <div class="mark"></div>
 </section>
 
-<section class="station st-title nomark" id="s37" data-name="Cierre" data-x="41400" data-y="26100">
+<section class="station st-find invert" id="s36b" data-name="Conclusión 02" data-x="50600" data-y="31900">
+      <div class="eyebrow" data-fade>Cierre · Conclusión 02</div>
+      <h2 class="display sm" data-split="lines">Hay que legislar<br>la pernocta mixta</h2>
+      <div class="hgrid">
+        <p class="lead" data-fade>Estación de servicio, lugar libre y camping conviven empatados. Una norma que
+           habilite un solo modo deja afuera a dos tercios de la comunidad.</p>
+        <div class="hbig" data-fade><div class="n">02</div><div class="k">de cuatro conclusiones para la agenda</div></div>
+      </div>
+  <div class="mark"></div>
+</section>
+
+<section class="station st-find invert" id="s36c" data-name="Conclusión 03" data-x="52900" data-y="31900">
+      <div class="eyebrow" data-fade>Cierre · Conclusión 03</div>
+      <h2 class="display sm" data-split="lines">El envejecimiento es<br>una oportunidad, no un problema</h2>
+      <div class="hgrid">
+        <p class="lead" data-fade>A mayor edad, más viajes largos — pero menos capacidad de pernocta agreste.
+           Las áreas equipadas son infraestructura de accesibilidad.</p>
+        <div class="hbig" data-fade><div class="n">03</div><div class="k">de cuatro conclusiones para la agenda</div></div>
+      </div>
+  <div class="mark"></div>
+</section>
+
+<section class="station st-find invert" id="s36d" data-name="Conclusión 04" data-x="52900" data-y="33350">
+      <div class="eyebrow" data-fade>Cierre · Conclusión 04</div>
+      <h2 class="display sm" data-split="lines">Las regiones necesitan<br>políticas distintas</h2>
+      <div class="hgrid">
+        <p class="lead" data-fade>Patagonia pide saneamiento, Cuyo y Norte piden seguridad y áreas, el Litoral
+           tiene el parque más viejo del país.</p>
+        <div class="hbig" data-fade><div class="n">04</div><div class="k">de cuatro conclusiones para la agenda</div></div>
+      </div>
+  <div class="mark"></div>
+</section>
+
+<section class="station st-title nomark" id="s37" data-name="Cierre" data-x="55200" data-y="33350">
   <div class="lg-censo" data-fade></div>
   <h2 class="display md" data-split="lines">Este censo sigue<br>abierto</h2>
   <p class="lead" data-fade>2.203 rodanteros ya se hicieron visibles.
