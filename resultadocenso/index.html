@@ -18,8 +18,9 @@
      del Censo Rodantero / Todo Motorhome. Antes del día de la presentación:
      descargar anime.js y las fuentes localmente. -->
 <style>
-/* Acceso restringido: contenido oculto hasta validar la contraseña. */
-html:not(.censo-unlocked) #viewport { display: none; }
+/* Acceso restringido: contenido invisible (sin display:none, que rompería las
+   mediciones offsetWidth/offsetHeight que hace el motor del deck al cargar). */
+html:not(.censo-unlocked) #viewport { visibility: hidden; pointer-events: none; }
 #censo-gate {
   position: fixed; inset: 0; z-index: 9999; display: flex;
   align-items: center; justify-content: center;
