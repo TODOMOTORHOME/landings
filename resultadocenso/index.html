@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Censo Rodantero 2025·2026 — Resultados parciales | Todo Motorhome</title>
 <meta name="description" content="Resultados parciales del Censo Rodantero 2025-2026: 2.203 respuestas sobre el perfil, los vehículos y las necesidades de la comunidad rodantera argentina. Una iniciativa de Todo Motorhome junto a ACA y FECRA.">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Todo Motorhome">
 <meta property="og:locale" content="es_AR">
@@ -17,6 +18,34 @@
      del Censo Rodantero / Todo Motorhome. Antes del día de la presentación:
      descargar anime.js y las fuentes localmente. -->
 <style>
+/* Acceso restringido: contenido oculto hasta validar la contraseña. */
+html:not(.censo-unlocked) #viewport { display: none; }
+#censo-gate {
+  position: fixed; inset: 0; z-index: 9999; display: flex;
+  align-items: center; justify-content: center;
+  background: #0b0d10; font-family: 'Inter', system-ui, sans-serif;
+}
+html.censo-unlocked #censo-gate { display: none; }
+#censo-gate .box {
+  width: 100%; max-width: 360px; padding: 36px 32px; margin: 0 20px;
+  background: #14171c; border: 1px solid rgba(255,255,255,.08);
+  border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,.5);
+}
+#censo-gate h2 { color: #f4f4f5; font-size: 20px; margin: 0 0 6px; }
+#censo-gate p { color: #9a9ca3; font-size: 14px; margin: 0 0 20px; line-height: 1.4; }
+#censo-gate input {
+  width: 100%; box-sizing: border-box; padding: 12px 14px; font-size: 15px;
+  border-radius: 10px; border: 1px solid rgba(255,255,255,.12);
+  background: #1c2027; color: #f4f4f5; margin-bottom: 12px;
+}
+#censo-gate input:focus { outline: 2px solid #5b8cff; outline-offset: 1px; }
+#censo-gate button {
+  width: 100%; padding: 12px 14px; font-size: 15px; font-weight: 600;
+  border-radius: 10px; border: none; background: #5b8cff; color: #0b0d10;
+  cursor: pointer;
+}
+#censo-gate button:hover { background: #789bff; }
+#censo-gate .err { color: #ff6b6b; font-size: 13px; margin-top: 10px; min-height: 16px; }
 /* Fuentes incrustadas en base64 (subset latino) — el deck no necesita internet. */
 @font-face {
   font-family: 'Inter';
@@ -267,8 +296,52 @@
   .c .ctx { line-height: 1.42; }
   .c b { font-weight: 700; opacity: 1; }
 </style>
+<script>
+try {
+  if (sessionStorage.getItem('censoAuth') === 'ok') {
+    document.documentElement.classList.add('censo-unlocked');
+  }
+} catch (e) {}
+</script>
 </head>
 <body>
+
+<div id="censo-gate">
+  <div class="box">
+    <h2>Acceso restringido</h2>
+    <p>Este informe es de uso interno. Ingresá la contraseña para continuar.</p>
+    <form id="censo-gate-form" autocomplete="off">
+      <input type="password" id="censo-gate-input" placeholder="Contraseña" autofocus>
+      <button type="submit">Ingresar</button>
+      <div class="err" id="censo-gate-err"></div>
+    </form>
+  </div>
+</div>
+<script>
+(function () {
+  var CENSO_HASH = '54c2562713a1063e0f568dc82c6c40c619daea859744bea03d51000e0eabb2a2';
+
+  function toHex(buf) {
+    return Array.prototype.map.call(new Uint8Array(buf), function (b) {
+      return ('0' + b.toString(16)).slice(-2);
+    }).join('');
+  }
+
+  document.getElementById('censo-gate-form').addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    var val = document.getElementById('censo-gate-input').value;
+    var errEl = document.getElementById('censo-gate-err');
+    crypto.subtle.digest('SHA-256', new TextEncoder().encode(val)).then(function (buf) {
+      if (toHex(buf) === CENSO_HASH) {
+        try { sessionStorage.setItem('censoAuth', 'ok'); } catch (e) {}
+        document.documentElement.classList.add('censo-unlocked');
+      } else {
+        errEl.textContent = 'Contraseña incorrecta.';
+      }
+    });
+  });
+})();
+</script>
 
 <div id="viewport">
   <div id="world">
