@@ -34,12 +34,20 @@ html.censo-unlocked #censo-gate { display: none; }
 }
 #censo-gate h2 { color: #f4f4f5; font-size: 20px; margin: 0 0 6px; }
 #censo-gate p { color: #9a9ca3; font-size: 14px; margin: 0 0 20px; line-height: 1.4; }
+#censo-gate .pw-wrap { position: relative; margin-bottom: 12px; }
 #censo-gate input {
-  width: 100%; box-sizing: border-box; padding: 12px 14px; font-size: 15px;
+  width: 100%; box-sizing: border-box; padding: 12px 44px 12px 14px; font-size: 15px;
   border-radius: 10px; border: 1px solid rgba(255,255,255,.12);
-  background: #1c2027; color: #f4f4f5; margin-bottom: 12px;
+  background: #1c2027; color: #f4f4f5;
 }
 #censo-gate input:focus { outline: 2px solid #5b8cff; outline-offset: 1px; }
+#censo-gate .pw-wrap #censo-gate-toggle {
+  position: absolute; top: 0; right: 0; bottom: 0; width: 40px;
+  display: flex; align-items: center; justify-content: center;
+  background: transparent; border: none; padding: 0; margin: 0;
+  color: #9a9ca3; cursor: pointer;
+}
+#censo-gate .pw-wrap #censo-gate-toggle:hover { color: #f4f4f5; }
 #censo-gate button {
   width: 100%; padding: 12px 14px; font-size: 15px; font-weight: 600;
   border-radius: 10px; border: none; background: #5b8cff; color: #0b0d10;
@@ -305,7 +313,12 @@ html.censo-unlocked #censo-gate { display: none; }
     <h2>Acceso restringido</h2>
     <p>Este informe es de uso interno. Ingresá la contraseña para continuar.</p>
     <form id="censo-gate-form" autocomplete="off">
-      <input type="password" id="censo-gate-input" placeholder="Contraseña" autofocus>
+      <div class="pw-wrap">
+        <input type="password" id="censo-gate-input" placeholder="Contraseña" autofocus>
+        <button type="button" id="censo-gate-toggle" aria-label="Mostrar contraseña">
+          <svg id="censo-gate-eye" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+        </button>
+      </div>
       <button type="submit">Ingresar</button>
       <div class="err" id="censo-gate-err"></div>
     </form>
@@ -320,6 +333,24 @@ html.censo-unlocked #censo-gate { display: none; }
       return ('0' + b.toString(16)).slice(-2);
     }).join('');
   }
+
+  var EYE_OPEN = '<path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z"/><circle cx="12" cy="12" r="3"/>';
+  var EYE_CLOSED = '<path d="M17.94 17.94A10.94 10.94 0 0 1 12 19c-7 0-11-7-11-7a21.6 21.6 0 0 1 5.06-5.94M9.9 4.24A10.94 10.94 0 0 1 12 4c7 0 11 7 11 7a21.6 21.6 0 0 1-2.87 3.87M14.12 14.12a3 3 0 1 1-4.24-4.24"/><path d="M1 1l22 22"/>';
+
+  var gateInput = document.getElementById('censo-gate-input');
+  var gateEye = document.getElementById('censo-gate-eye');
+  document.getElementById('censo-gate-toggle').addEventListener('click', function () {
+    var showing = gateInput.type === 'text';
+    gateInput.type = showing ? 'password' : 'text';
+    gateEye.innerHTML = showing ? EYE_OPEN : EYE_CLOSED;
+    gateInput.focus();
+  });
+
+  /* El deck intercepta teclas (o, flechas, espacio, escape) a nivel window;
+     evitamos que lleguen ahi mientras se escribe en el gate. */
+  document.getElementById('censo-gate').addEventListener('keydown', function (e) {
+    e.stopPropagation();
+  });
 
   document.getElementById('censo-gate-form').addEventListener('submit', function (ev) {
     ev.preventDefault();
