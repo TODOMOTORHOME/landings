@@ -296,13 +296,6 @@ html.censo-unlocked #censo-gate { display: none; }
   .c .ctx { line-height: 1.42; }
   .c b { font-weight: 700; opacity: 1; }
 </style>
-<script>
-try {
-  if (sessionStorage.getItem('censoAuth') === 'ok') {
-    document.documentElement.classList.add('censo-unlocked');
-  }
-} catch (e) {}
-</script>
 </head>
 <body>
 
@@ -333,7 +326,6 @@ try {
     var errEl = document.getElementById('censo-gate-err');
     crypto.subtle.digest('SHA-256', new TextEncoder().encode(val)).then(function (buf) {
       if (toHex(buf) === CENSO_HASH) {
-        try { sessionStorage.setItem('censoAuth', 'ok'); } catch (e) {}
         document.documentElement.classList.add('censo-unlocked');
       } else {
         errEl.textContent = 'Contraseña incorrecta.';
