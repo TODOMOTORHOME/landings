@@ -399,7 +399,32 @@
   .tmh-footer__links .tmh-footer__gap{height:28px;}
 
   /* ============ SORTEO — EXTRA STYLES ============ */
-  .hero__icon{width:min(400px,80vw);height:auto;margin:0 auto 20px;display:block;}
+  .hero-split{
+    display:flex;align-items:center;justify-content:space-between;gap:56px;
+    max-width:1200px;margin:0 auto;text-align:left;
+  }
+  .hero-split .hero-content{flex:1 1 460px;min-width:0;}
+  .hero-split .hero__kicker{text-align:left;}
+  .hero-split h1{text-align:left;}
+  .hero-split .hero__intro,
+  .hero-split .hero__partners{text-align:left;max-width:none;margin-left:0;margin-right:0;}
+  .hero-split .hero__cta{justify-content:flex-start;}
+  .hero-photo{flex:1 1 440px;display:flex;justify-content:flex-end;min-width:0;}
+  .hero-photo img{
+    width:100%;max-width:540px;height:auto;display:block;
+    border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.15);
+  }
+  @media (max-width:900px){
+    .hero-split{flex-direction:column;text-align:center;gap:32px;}
+    .hero-split .hero-content{flex:none;width:100%;}
+    .hero-split .hero__kicker,
+    .hero-split h1,
+    .hero-split .hero__intro,
+    .hero-split .hero__partners{text-align:center;}
+    .hero-split .hero__cta{justify-content:center;}
+    .hero-photo{justify-content:center;width:100%;}
+    .hero-photo img{max-width:440px;}
+  }
   .hero__kicker{
     text-align:center;font-size:.8rem;font-weight:700;letter-spacing:.14em;
     text-transform:uppercase;color:var(--gold-dark);margin-bottom:14px;
@@ -570,42 +595,26 @@
 
 <!-- Hero -->
 <section class="hero">
-  <svg class="hero__icon" viewBox="0 0 560 340" aria-hidden="true">
-    <ellipse cx="300" cy="288" rx="200" ry="16" fill="#1f2328" opacity="0.08"/>
-    <path d="M40 232 L150 214 L150 232" fill="none" stroke="#1f2328" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="40" cy="232" r="12" fill="#faf8f3" stroke="#1f2328" stroke-width="4"/>
-    <circle cx="40" cy="232" r="3.5" fill="#1f2328"/>
-    <line x1="120" y1="222" x2="120" y2="256" stroke="#1f2328" stroke-width="4" stroke-linecap="round"/>
-    <circle cx="120" cy="262" r="10" fill="#1f2328"/>
-    <circle cx="120" cy="262" r="3.5" fill="#faf8f3"/>
-    <path d="M150 150 C150 128 168 112 192 112 L430 112 C468 112 494 138 494 176 L494 232 C494 246 484 256 470 256 L166 256 C157 256 150 249 150 240 Z"
-          fill="#ffffff" stroke="#1f2328" stroke-width="5" stroke-linejoin="round"/>
-    <path d="M150 214 L494 214" stroke="#c99b2f" stroke-width="10"/>
-    <rect x="330" y="98" width="46" height="16" rx="6" fill="#ffffff" stroke="#1f2328" stroke-width="4"/>
-    <circle cx="234" cy="168" r="34" fill="#faf8f3" stroke="#1f2328" stroke-width="5"/>
-    <circle cx="234" cy="168" r="24" fill="none" stroke="#c99b2f" stroke-width="3"/>
-    <line x1="234" y1="144" x2="234" y2="192" stroke="#1f2328" stroke-width="2.5"/>
-    <rect x="392" y="128" width="70" height="86" rx="8" fill="#faf8f3" stroke="#1f2328" stroke-width="5"/>
-    <circle cx="452" cy="172" r="4.5" fill="#c99b2f"/>
-    <path d="M275 256 a48 40 0 0 1 96 0 Z" fill="#1f2328"/>
-    <circle cx="323" cy="258" r="38" fill="#1f2328"/>
-    <circle cx="323" cy="258" r="16" fill="#faf8f3"/>
-    <circle cx="323" cy="258" r="5" fill="#c99b2f"/>
-    <path d="M470 256 L494 256 L494 232" fill="none" stroke="#1f2328" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>
-  <p class="hero__kicker">Sorteo 2026 · Todo Motorhome</p>
-  <h1>Sorteo Casa Rodante <em>DAKO Trailer</em></h1>
-  <p class="hero__intro">Participá por una Casa Rodante Dako 350, fabricada por <strong>Dako Trailers</strong> y equipada con el aporte de <strong>Avin Ice</strong>, <strong>Ruedas RAR / ALKO Argentina</strong>, <strong>Parcamp</strong>, <strong>Crisven</strong>, <strong>Barbus</strong> y <strong>Leo Bruni Design</strong>. Una organización de <strong>Todo Motorhome</strong>, con acompañamiento de escribano público.</p>
-  <p class="hero__partners">Sumá chances registrándote en la plataforma y asistiendo a Urdampilleta Rodante, Exporodantear y Zapparancho.</p>
-  <div class="hero__cta">
-    <a class="btn btn--primary" href="https://www.todomotorhome.ar/signup">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-      Quiero participar
-    </a>
-    <a class="btn btn--ghost" href="/sorteo/legal/">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6"/><path d="M9 17h6"/></svg>
-      Ver bases y condiciones
-    </a>
+  <div class="hero-split">
+    <div class="hero-content">
+      <p class="hero__kicker">Sorteo 2026 · Todo Motorhome</p>
+      <h1>Sorteo Casa Rodante <em>DAKO Trailer</em></h1>
+      <p class="hero__intro">Participá por una Casa Rodante Dako 350, fabricada por <strong>Dako Trailers</strong> y equipada con el aporte de <strong>Avin Ice</strong>, <strong>Ruedas RAR / ALKO Argentina</strong>, <strong>Parcamp</strong>, <strong>Crisven</strong>, <strong>Barbus</strong> y <strong>Leo Bruni Design</strong>. Una organización de <strong>Todo Motorhome</strong>, con acompañamiento de escribano público.</p>
+      <p class="hero__partners">Sumá chances registrándote en la plataforma y asistiendo a Urdampilleta Rodante, Exporodantear y Zapparancho.</p>
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="https://www.todomotorhome.ar/signup">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Quiero participar
+        </a>
+        <a class="btn btn--ghost" href="/sorteo/legal/">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6"/><path d="M9 17h6"/></svg>
+          Ver bases y condiciones
+        </a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="assets/dako-trailer.jpg" alt="Casa Rodante Dako 350 enganchada a la camioneta, lista para viajar" width="1553" height="899" loading="eager">
+    </div>
   </div>
 </section>
 
