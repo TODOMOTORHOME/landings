@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sorteo Casa Rodante DAKO Trailer | Todo Motorhome</title>
-<meta name="description" content="Participá por una Casa Rodante Dako 350 equipada a nuevo. Registrate, censate en el Censo Rodantero y sumá chances asistiendo a Experiencia Elite, Urdampilleta Rodante, Exporodantear y Zapparancho. Un sorteo de Dako Trailers, Avin Ice y Todo Motorhome.">
+<meta name="description" content="Participá por una Casa Rodante Dako 350 equipada a nuevo. Registrate en Todo Motorhome, completá el Censo Rodantero y seguí a las marcas del sorteo. Un sorteo de Dako Trailers, Avin Ice y Todo Motorhome.">
 
 <link rel="canonical" href="https://www.todomotorhome.ar/sorteo">
 
@@ -13,7 +13,7 @@
 <meta property="og:locale" content="es_AR">
 <meta property="og:url" content="https://www.todomotorhome.ar/sorteo">
 <meta property="og:title" content="Sorteo Casa Rodante DAKO Trailer | Todo Motorhome">
-<meta property="og:description" content="Participá por una Casa Rodante Dako 350 equipada a nuevo. Registrate, censate en el Censo Rodantero y sumá chances asistiendo a los eventos rodanteros 2026.">
+<meta property="og:description" content="Participá por una Casa Rodante Dako 350 equipada a nuevo. Registrate en Todo Motorhome, completá el Censo Rodantero y seguí a las marcas del sorteo.">
 <meta property="og:image" content="https://www.todomotorhome.ar/sorteo/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -21,7 +21,7 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Sorteo Casa Rodante DAKO Trailer | Todo Motorhome">
-<meta name="twitter:description" content="Participá por una Casa Rodante Dako 350 equipada a nuevo. Registrate, censate y sumá chances en los eventos rodanteros 2026.">
+<meta name="twitter:description" content="Participá por una Casa Rodante Dako 350 equipada a nuevo. Registrate en Todo Motorhome, completá el Censo Rodantero y seguí a las marcas del sorteo.">
 <meta name="twitter:image" content="https://www.todomotorhome.ar/sorteo/og.png">
 
 <!-- Google tag (gtag.js) -->
@@ -474,33 +474,39 @@
     color:var(--ink-soft);margin-bottom:18px;
   }
   .sponsor-strip__logos{
-    display:grid;grid-template-columns:repeat(4,1fr);
+    display:grid;grid-template-columns:repeat(5,1fr);
     justify-items:center;align-items:center;row-gap:32px;column-gap:24px;
   }
   .sponsor-strip__logos img{height:90px;width:auto;max-width:100%;object-fit:contain;}
-  @media (max-width:700px){
+  @media (max-width:900px){
+    .sponsor-strip__logos{grid-template-columns:repeat(3,1fr);}
+  }
+  @media (max-width:600px){
     .sponsor-strip__logos{grid-template-columns:repeat(2,1fr);}
   }
 
-  .chances-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
-  .chances-grid .chance-card--top{grid-column:1 / -1;max-width:calc(50% - 10px);margin:0 auto;}
-  @media (max-width:520px){
-    .chances-grid{grid-template-columns:1fr;}
-    .chances-grid .chance-card--top{max-width:none;}
+  .status-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  @media (max-width:900px){
+    .status-grid{grid-template-columns:1fr;}
   }
-  .chance-card{
-    border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px;
-    background:#fff;text-align:center;transition:box-shadow .2s,transform .2s,border-color .2s;
+  .status-card{
+    border:1px solid var(--line);border-radius:var(--radius);padding:28px 26px;
+    background:#fff;display:flex;flex-direction:column;gap:14px;
+    transition:box-shadow .2s,transform .2s;
   }
-  .chance-card:hover{box-shadow:0 10px 28px rgba(0,0,0,.08);transform:translateY(-3px);}
-  .chance-card--top{border-color:var(--gold);box-shadow:0 6px 24px rgba(201,155,47,.16);}
-  .chance-card__num{font-size:2.5rem;font-weight:800;color:var(--gold-dark);line-height:1;margin-bottom:6px;}
-  .chance-card__label{
-    font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;
-    color:var(--ink-soft);margin-bottom:16px;
+  .status-card:hover{box-shadow:0 10px 28px rgba(0,0,0,.08);transform:translateY(-3px);}
+  .status-card--ready{border-color:var(--gold);box-shadow:0 6px 24px rgba(201,155,47,.16);background:var(--bg-soft);}
+  .status-card__badge{
+    width:40px;height:40px;border-radius:50%;background:var(--bg-soft);
+    border:1px solid var(--line);display:flex;align-items:center;justify-content:center;
+    font-weight:800;color:var(--gold-dark);font-size:1rem;
   }
-  .chance-card__desc{font-size:.92rem;color:var(--ink-soft);}
-  .chance-card__desc strong{color:var(--ink);}
+  .status-card--ready .status-card__badge{background:var(--gold);color:#fff;border-color:var(--gold);}
+  .status-card__title{font-size:1.05rem;font-weight:800;color:var(--ink);}
+  .status-card__list{padding-left:20px;color:var(--ink-soft);font-size:.92rem;margin:0;}
+  .status-card__list li{margin-bottom:6px;}
+  .status-card__desc{color:var(--ink-soft);font-size:.92rem;margin:0;}
+  .status-card .btn{align-self:flex-start;margin-top:auto;font-size:.9rem;padding:11px 22px;}
 
   .events-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
   @media (max-width:700px){
@@ -635,8 +641,8 @@
     <div class="hero-content">
       <p class="hero__kicker">Sorteo 2026 · Todo Motorhome</p>
       <h1>Sorteo Casa Rodante <em>DAKO Trailer</em></h1>
-      <p class="hero__intro">Participá por una Casa Rodante Dako 350, fabricada por <strong>Dako Trailers</strong> y equipada con el aporte de <strong>Avin Ice</strong>, <strong>Ruedas RAR / ALKO Argentina</strong>, <strong>Parcamp</strong>, <strong>Crisven</strong> y <strong>Barbus</strong>. Una organización de <strong>Todo Motorhome</strong>, con acompañamiento de escribano público.</p>
-      <p class="hero__partners">Sumá chances registrándote en la plataforma y asistiendo a Experiencia Elite, Urdampilleta Rodante, Exporodantear y Zapparancho.</p>
+      <p class="hero__intro">Participá por una Casa Rodante Dako 350, fabricada por <strong>Dako Trailers</strong> y equipada con el aporte de <strong>Avin Ice</strong>, <strong>Ruedas RAR / ALKO Argentina</strong>, <strong>Parcamp</strong>, <strong>Crisven</strong>, <strong>Barbus</strong> y <strong>Gibertcar</strong>. Una organización de <strong>Todo Motorhome</strong>, con acompañamiento de escribano público.</p>
+      <p class="hero__partners">Para participar solo tenés que registrarte en Todo Motorhome, completar el Censo Rodantero y seguir a las marcas del sorteo.</p>
       <div class="hero__cta">
         <a class="btn btn--primary" href="https://www.todomotorhome.ar/signup">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
@@ -665,6 +671,8 @@
     <img src="assets/Parcamp.svg" alt="Parcamp" loading="lazy">
     <img src="assets/Crisven.svg" alt="Crisven" loading="lazy">
     <img src="assets/Barbus.svg" alt="Barbus" loading="lazy">
+    <img src="assets/Cabert.svg" alt="Cabert" loading="lazy">
+    <img src="assets/Gibertcar.svg" alt="Gibertcar" loading="lazy">
     <img src="assets/todomotorhome-logo-black.png" alt="Todo Motorhome" loading="lazy">
   </div>
 </div>
@@ -673,55 +681,41 @@
 <div class="important-banner">
   <div class="callout callout--alert">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg>
-    <span><strong>Importante:</strong> para participar del sorteo es obligatorio <strong>registrarte en la plataforma Todo Motorhome</strong> y además <strong>censarte en el <a href="https://www.todomotorhome.ar/censorodantero">Censo Rodantero 2025‑2026</a></strong>. Ambos pasos son excluyentes: sin registro y sin censo completo, las chances obtenidas no podrán validarse.</span>
+    <span><strong>Importante:</strong> para participar del sorteo es obligatorio <strong>registrarte en la plataforma Todo Motorhome</strong>, <strong>censarte en el <a href="https://www.todomotorhome.ar/censorodantero">Censo Rodantero 2025‑2026</a></strong> y <strong>seguir a las marcas del sorteo en redes sociales</strong>. Sin los tres pasos completos no vas a poder participar.</span>
   </div>
 </div>
 
-<!-- Cómo funciona: chances -->
-<section class="section" id="chances">
+<!-- Cómo participar -->
+<section class="section" id="como-participar">
   <p class="section__kicker">Mecánica del sorteo</p>
-  <h2 class="section__title">Sumá chances y multiplicá tus posibilidades</h2>
-  <p class="section__lead">Todos los participantes empiezan con una chance simple. Las chances se multiplican asistiendo a los eventos rodanteros oficiales del sorteo.</p>
-  <div class="chances-grid">
-    <div class="chance-card">
-      <div class="chance-card__num">1</div>
-      <div class="chance-card__label">Chance simple</div>
-      <div class="chance-card__desc">Registro en la plataforma <strong>Todo Motorhome</strong> + seguimiento a las cuentas de redes sociales asociadas al sorteo.</div>
+  <h2 class="section__title">Así de simple: registrate, censate y seguí a las marcas</h2>
+  <p class="section__lead">No hay chances ni puntajes. Registrarte en Todo Motorhome, completar el Censo Rodantero y seguir a las marcas del sorteo es la única forma de participar y ser elegible para ganar. Fijate en qué situación estás.</p>
+  <div class="status-grid">
+    <div class="status-card">
+      <div class="status-card__badge">1</div>
+      <h3 class="status-card__title">Sos nuevo en Todo Motorhome</h3>
+      <ul class="status-card__list">
+        <li>Registrate en la plataforma.</li>
+        <li>Completá el Censo Rodantero 2025‑2026.</li>
+        <li>Seguí a las marcas del sorteo en redes sociales.</li>
+      </ul>
+      <a class="btn btn--primary" href="https://www.todomotorhome.ar/signup">Registrarme</a>
     </div>
-    <div class="chance-card">
-      <div class="chance-card__num">5</div>
-      <div class="chance-card__label">Chance · 1 evento</div>
-      <div class="chance-card__desc">Entrada a <strong>1 evento</strong> (Experiencia Elite, Zapparancho, Urdampilleta o Exporodantear) + registro + seguimiento a cuentas asociadas.</div>
+    <div class="status-card">
+      <div class="status-card__badge">2</div>
+      <h3 class="status-card__title">Ya estás registrado, pero te falta el Censo</h3>
+      <ul class="status-card__list">
+        <li>Completá el Censo Rodantero 2025‑2026.</li>
+        <li>Seguí a las marcas del sorteo en redes sociales.</li>
+      </ul>
+      <a class="btn btn--primary" href="https://www.todomotorhome.ar/censorodantero">Completar el Censo</a>
     </div>
-    <div class="chance-card">
-      <div class="chance-card__num">10</div>
-      <div class="chance-card__label">Chance · 2 eventos</div>
-      <div class="chance-card__desc">Entradas a <strong>2 eventos combinados</strong> (a elección entre Experiencia Elite, Zapparancho, Urdampilleta o Exporodantear) + registro + seguimiento a cuentas asociadas.</div>
-    </div>
-    <div class="chance-card">
-      <div class="chance-card__num">15</div>
-      <div class="chance-card__label">Chance · 3 eventos</div>
-      <div class="chance-card__desc">Entradas a <strong>3 eventos combinados</strong> (a elección entre Experiencia Elite, Zapparancho, Urdampilleta o Exporodantear) + registro + seguimiento a cuentas asociadas.</div>
-    </div>
-    <div class="chance-card chance-card--top">
-      <div class="chance-card__num">20</div>
-      <div class="chance-card__label">Chance · 4 eventos</div>
-      <div class="chance-card__desc">Entradas a <strong>los 4 eventos</strong> (Experiencia Elite + Zapparancho + Urdampilleta + Exporodantear) + registro + seguimiento a cuentas asociadas.</div>
+    <div class="status-card status-card--ready">
+      <div class="status-card__badge">✓</div>
+      <h3 class="status-card__title">Ya estás registrado y ya hiciste el Censo</h3>
+      <p class="status-card__desc">¡Ya estás participando! Solo te falta seguir a las marcas del sorteo en redes sociales.</p>
     </div>
   </div>
-</section>
-
-<!-- Requisitos de validación -->
-<section class="section section--soft section--narrow" id="requisitos" style="max-width:1080px;">
-  <p class="section__kicker">Antes de reclamar el premio</p>
-  <h2 class="section__title">Requisitos de validación</h2>
-  <p class="section__lead">Para poder reclamar el premio, todo ganador deberá acreditar el cumplimiento de estos puntos.</p>
-  <ul class="needs-list" style="max-width:760px;margin-left:auto;margin-right:auto;">
-    <li><strong>Registro completo</strong> en la plataforma Todo Motorhome.</li>
-    <li><strong>Censo Rodantero:</strong> haberse censado en el Censo Rodantero 2025‑2026 de Todo Motorhome.</li>
-    <li><strong>Verificación de seguimiento</strong> en redes sociales a todas las marcas sponsor del sorteo.</li>
-    <li><strong>ID / comprobante</strong> de las entradas requeridas para validar los incrementos de chances por eventos.</li>
-  </ul>
 </section>
 
 <!-- La casa rodante -->
@@ -804,9 +798,9 @@
 
 <!-- Eventos confirmados -->
 <section class="section section--soft" id="eventos">
-  <p class="section__kicker">Sumá chances en persona</p>
+  <p class="section__kicker">Conocé la unidad en persona</p>
   <h2 class="section__title">Eventos confirmados</h2>
-  <p class="section__lead">Visitá el stand del sorteo, conocé la unidad en persona y validá tu entrada para sumar chances.</p>
+  <p class="section__lead">Visitá el stand del sorteo y conocé la Casa Rodante Dako 350 en persona en estos eventos.</p>
   <div class="events-grid">
     <div class="event-card">
       <div class="event-card__top">
@@ -896,7 +890,7 @@
       </div>
       <div class="partner-item__body">
         <div class="partner-item__name">Avin Ice</div>
-        <div class="partner-item__desc">Consecución de los sponsors necesarios para cubrir el equipamiento de la Casa Rodante. Cara visible de la comunicación del sorteo. Custodia y disposición de la unidad en su empresa para la generación de contenido y participación en eventos.</div>
+        <div class="partner-item__desc">Cara visible de la comunicación del sorteo. Custodia y disposición de la unidad en su empresa para la generación de contenido y participación en eventos.</div>
       </div>
     </div>
     <div class="partner-item">
@@ -934,6 +928,24 @@
       <div class="partner-item__body">
         <div class="partner-item__name">Barbus</div>
         <div class="partner-item__desc">Provisión del certificado de empadronamiento CR.</div>
+      </div>
+    </div>
+    <div class="partner-item">
+      <div class="partner-item__logos">
+        <div class="partner-item__logo"><img src="assets/Cabert.svg" alt="Cabert" loading="lazy"></div>
+      </div>
+      <div class="partner-item__body">
+        <div class="partner-item__name">Cabert</div>
+        <div class="partner-item__desc">Provisión de stands para el sorteo en sus eventos.</div>
+      </div>
+    </div>
+    <div class="partner-item">
+      <div class="partner-item__logos">
+        <div class="partner-item__logo"><img src="assets/Gibertcar.svg" alt="Gibertcar" loading="lazy"></div>
+      </div>
+      <div class="partner-item__body">
+        <div class="partner-item__name">Gibertcar</div>
+        <div class="partner-item__desc">Provisión de accesorios.</div>
       </div>
     </div>
     <div class="partner-item">
