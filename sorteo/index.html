@@ -468,7 +468,25 @@
   .important-banner .callout svg{width:22px;height:22px;flex-shrink:0;margin-top:2px;color:var(--gold-dark);}
   .important-banner .callout a{color:var(--gold-dark);font-weight:700;text-decoration:underline;}
 
-  .chances-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;}
+  .sponsor-strip{max-width:1080px;margin:0 auto;padding:28px 24px 4px;text-align:center;}
+  .sponsor-strip__label{
+    font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+    color:var(--ink-soft);margin-bottom:18px;
+  }
+  .sponsor-strip__logos{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:30px;}
+  .sponsor-strip__logos img{
+    height:30px;width:auto;max-width:100px;object-fit:contain;
+    opacity:.7;filter:grayscale(100%);transition:opacity .15s,filter .15s;
+  }
+  .sponsor-strip__logos img:hover{opacity:1;filter:none;}
+
+  .chances-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;}
+  @media (max-width:1000px){
+    .chances-grid{grid-template-columns:repeat(3,1fr);}
+  }
+  @media (max-width:640px){
+    .chances-grid{grid-template-columns:1fr;}
+  }
   .chance-card{
     border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px;
     background:#fff;text-align:center;transition:box-shadow .2s,transform .2s,border-color .2s;
@@ -483,7 +501,10 @@
   .chance-card__desc{font-size:.92rem;color:var(--ink-soft);}
   .chance-card__desc strong{color:var(--ink);}
 
-  .events-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:24px;}
+  .events-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+  @media (max-width:700px){
+    .events-grid{grid-template-columns:1fr;}
+  }
   .event-card{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;}
   .event-card__top{background:var(--bg-soft);padding:20px 22px;border-bottom:1px solid var(--line);}
   .event-card__name{font-weight:800;font-size:1.12rem;margin-bottom:6px;}
@@ -506,8 +527,18 @@
     border:1px solid var(--line);display:flex;align-items:center;justify-content:center;
     font-weight:800;color:var(--gold-dark);font-size:.82rem;
   }
+  .partner-item__logos{flex-shrink:0;display:flex;gap:8px;align-items:center;}
+  .partner-item__logo{
+    width:80px;height:56px;border-radius:8px;background:#fff;
+    border:1px solid var(--line);display:flex;align-items:center;justify-content:center;padding:8px;
+  }
+  .partner-item__logo img{max-width:100%;max-height:100%;object-fit:contain;}
   .partner-item__name{font-weight:800;margin-bottom:4px;font-size:1rem;}
   .partner-item__desc{color:var(--ink-soft);font-size:.92rem;}
+  @media (max-width:520px){
+    .partner-item{flex-direction:column;}
+    .partner-item__logos{flex-direction:row;}
+  }
 
   .needs-list{display:grid;gap:14px;margin-top:8px;}
   .needs-list li{
@@ -599,7 +630,7 @@
     <div class="hero-content">
       <p class="hero__kicker">Sorteo 2026 · Todo Motorhome</p>
       <h1>Sorteo Casa Rodante <em>DAKO Trailer</em></h1>
-      <p class="hero__intro">Participá por una Casa Rodante Dako 350, fabricada por <strong>Dako Trailers</strong> y equipada con el aporte de <strong>Avin Ice</strong>, <strong>Ruedas RAR / ALKO Argentina</strong>, <strong>Parcamp</strong>, <strong>Crisven</strong>, <strong>Barbus</strong> y <strong>Leo Bruni Design</strong>. Una organización de <strong>Todo Motorhome</strong>, con acompañamiento de escribano público.</p>
+      <p class="hero__intro">Participá por una Casa Rodante Dako 350, fabricada por <strong>Dako Trailers</strong> y equipada con el aporte de <strong>Avin Ice</strong>, <strong>Ruedas RAR / ALKO Argentina</strong>, <strong>Parcamp</strong>, <strong>Crisven</strong> y <strong>Barbus</strong>. Una organización de <strong>Todo Motorhome</strong>, con acompañamiento de escribano público.</p>
       <p class="hero__partners">Sumá chances registrándote en la plataforma y asistiendo a Experiencia Elite, Urdampilleta Rodante, Exporodantear y Zapparancho.</p>
       <div class="hero__cta">
         <a class="btn btn--primary" href="https://www.todomotorhome.ar/signup">
@@ -617,6 +648,20 @@
     </div>
   </div>
 </section>
+
+<!-- Sponsors -->
+<div class="sponsor-strip">
+  <p class="sponsor-strip__label">Con el apoyo de</p>
+  <div class="sponsor-strip__logos">
+    <img src="assets/DAKO.svg" alt="Dako Trailers" loading="lazy">
+    <img src="assets/Avinice.svg" alt="Avin Ice" loading="lazy">
+    <img src="assets/Ruedas RAR.svg" alt="Ruedas RAR" loading="lazy">
+    <img src="assets/AL-KO.svg" alt="ALKO Argentina" loading="lazy">
+    <img src="assets/Parcamp.svg" alt="Parcamp" loading="lazy">
+    <img src="assets/Crisven.svg" alt="Crisven" loading="lazy">
+    <img src="assets/Barbus.svg" alt="Barbus" loading="lazy">
+  </div>
+</div>
 
 <!-- Importante: registro + censo -->
 <div class="important-banner">
@@ -640,17 +685,22 @@
     <div class="chance-card">
       <div class="chance-card__num">5</div>
       <div class="chance-card__label">Chance · 1 evento</div>
-      <div class="chance-card__desc">Entrada a <strong>1 evento</strong> (Zapparancho, Urdampilleta o Exporodantear) + registro + seguimiento a cuentas asociadas.</div>
+      <div class="chance-card__desc">Entrada a <strong>1 evento</strong> (Experiencia Elite, Zapparancho, Urdampilleta o Exporodantear) + registro + seguimiento a cuentas asociadas.</div>
     </div>
     <div class="chance-card">
       <div class="chance-card__num">10</div>
       <div class="chance-card__label">Chance · 2 eventos</div>
-      <div class="chance-card__desc">Entradas a <strong>2 eventos combinados</strong> (Zapparancho, Urdampilleta o Exporodantear) + registro + seguimiento a cuentas asociadas.</div>
+      <div class="chance-card__desc">Entradas a <strong>2 eventos combinados</strong> (a elección entre Experiencia Elite, Zapparancho, Urdampilleta o Exporodantear) + registro + seguimiento a cuentas asociadas.</div>
     </div>
-    <div class="chance-card chance-card--top">
+    <div class="chance-card">
       <div class="chance-card__num">15</div>
       <div class="chance-card__label">Chance · 3 eventos</div>
-      <div class="chance-card__desc">Entradas a <strong>los 3 eventos</strong> (Zapparancho + Urdampilleta + Exporodantear) + registro + seguimiento a cuentas asociadas.</div>
+      <div class="chance-card__desc">Entradas a <strong>3 eventos combinados</strong> (a elección entre Experiencia Elite, Zapparancho, Urdampilleta o Exporodantear) + registro + seguimiento a cuentas asociadas.</div>
+    </div>
+    <div class="chance-card chance-card--top">
+      <div class="chance-card__num">20</div>
+      <div class="chance-card__label">Chance · 4 eventos</div>
+      <div class="chance-card__desc">Entradas a <strong>los 4 eventos</strong> (Experiencia Elite + Zapparancho + Urdampilleta + Exporodantear) + registro + seguimiento a cuentas asociadas.</div>
     </div>
   </div>
 </section>
@@ -826,14 +876,18 @@
   <p class="section__lead">Cada marca cumple un rol específico en la fabricación, equipamiento y organización del sorteo.</p>
   <div class="partners-list">
     <div class="partner-item">
-      <div class="partner-item__badge">DT</div>
+      <div class="partner-item__logos">
+        <div class="partner-item__logo"><img src="assets/DAKO.svg" alt="Dako Trailers" loading="lazy"></div>
+      </div>
       <div>
         <div class="partner-item__name">Dako Trailers</div>
         <div class="partner-item__desc">Fabricación de la unidad Casa Rodante Dako 350.</div>
       </div>
     </div>
     <div class="partner-item">
-      <div class="partner-item__badge">AI</div>
+      <div class="partner-item__logos">
+        <div class="partner-item__logo"><img src="assets/Avinice.svg" alt="Avin Ice" loading="lazy"></div>
+      </div>
       <div>
         <div class="partner-item__name">Avin Ice</div>
         <div class="partner-item__desc">Consecución de los sponsors necesarios para cubrir el equipamiento de la Casa Rodante. Cara visible de la comunicación del sorteo. Custodia y disposición de la unidad en su empresa para la generación de contenido y participación en eventos.</div>
@@ -847,38 +901,40 @@
       </div>
     </div>
     <div class="partner-item">
-      <div class="partner-item__badge">RA</div>
+      <div class="partner-item__logos">
+        <div class="partner-item__logo"><img src="assets/Ruedas RAR.svg" alt="Ruedas RAR" loading="lazy"></div>
+        <div class="partner-item__logo"><img src="assets/AL-KO.svg" alt="ALKO Argentina" loading="lazy"></div>
+      </div>
       <div>
         <div class="partner-item__name">Ruedas RAR / ALKO Argentina</div>
         <div class="partner-item__desc">Provisión del chasis para la unidad.</div>
       </div>
     </div>
     <div class="partner-item">
-      <div class="partner-item__badge">PC</div>
+      <div class="partner-item__logos">
+        <div class="partner-item__logo"><img src="assets/Parcamp.svg" alt="Parcamp" loading="lazy"></div>
+      </div>
       <div>
         <div class="partner-item__name">Parcamp</div>
         <div class="partner-item__desc">Provisión de las placas de madera.</div>
       </div>
     </div>
     <div class="partner-item">
-      <div class="partner-item__badge">CV</div>
+      <div class="partner-item__logos">
+        <div class="partner-item__logo"><img src="assets/Crisven.svg" alt="Crisven" loading="lazy"></div>
+      </div>
       <div>
         <div class="partner-item__name">Crisven</div>
         <div class="partner-item__desc">Provisión de las ventanas.</div>
       </div>
     </div>
     <div class="partner-item">
-      <div class="partner-item__badge">BB</div>
+      <div class="partner-item__logos">
+        <div class="partner-item__logo"><img src="assets/Barbus.svg" alt="Barbus" loading="lazy"></div>
+      </div>
       <div>
         <div class="partner-item__name">Barbus</div>
         <div class="partner-item__desc">Provisión del certificado de empadronamiento CR.</div>
-      </div>
-    </div>
-    <div class="partner-item">
-      <div class="partner-item__badge">LB</div>
-      <div>
-        <div class="partner-item__name">Leo Bruni Design</div>
-        <div class="partner-item__desc">Diseño general y renders del proyecto.</div>
       </div>
     </div>
   </div>
