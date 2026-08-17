@@ -456,7 +456,6 @@
     text-transform:uppercase;color:var(--gold-dark);margin-bottom:8px;
   }
   .section__title{text-align:center;font-size:1.6rem;font-weight:800;margin-bottom:16px;letter-spacing:-.01em;}
-  .casa-rodante__logo{display:block;height:72px;width:auto;margin:0 auto 20px;}
   .section__lead{max-width:720px;margin:0 auto 40px;text-align:center;color:var(--ink-soft);font-size:1rem;}
 
   .important-banner{
@@ -474,13 +473,20 @@
     font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
     color:var(--ink-soft);margin-bottom:18px;
   }
-  .sponsor-strip__logos{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:44px;}
-  .sponsor-strip__logos img{height:90px;width:auto;max-width:260px;object-fit:contain;}
+  .sponsor-strip__logos{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    justify-items:center;align-items:center;row-gap:32px;column-gap:24px;
+  }
+  .sponsor-strip__logos img{height:90px;width:auto;max-width:100%;object-fit:contain;}
+  @media (max-width:700px){
+    .sponsor-strip__logos{grid-template-columns:repeat(2,1fr);}
+  }
 
   .chances-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
-  .chances-grid .chance-card--top{grid-column:1 / -1;}
+  .chances-grid .chance-card--top{grid-column:1 / -1;max-width:calc(50% - 10px);margin:0 auto;}
   @media (max-width:520px){
     .chances-grid{grid-template-columns:1fr;}
+    .chances-grid .chance-card--top{max-width:none;}
   }
   .chance-card{
     border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px;
@@ -488,12 +494,6 @@
   }
   .chance-card:hover{box-shadow:0 10px 28px rgba(0,0,0,.08);transform:translateY(-3px);}
   .chance-card--top{border-color:var(--gold);box-shadow:0 6px 24px rgba(201,155,47,.16);}
-  .chances-grid .chance-card--top{
-    display:flex;flex-wrap:wrap;align-items:center;gap:8px 32px;text-align:left;padding:26px 32px;
-  }
-  .chances-grid .chance-card--top .chance-card__num{margin-bottom:0;}
-  .chances-grid .chance-card--top .chance-card__label{margin-bottom:0;white-space:nowrap;}
-  .chances-grid .chance-card--top .chance-card__desc{flex:1;min-width:240px;}
   .chance-card__num{font-size:2.5rem;font-weight:800;color:var(--gold-dark);line-height:1;margin-bottom:6px;}
   .chance-card__label{
     font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;
@@ -530,15 +530,15 @@
   }
   .partner-item__logos{flex-shrink:0;display:flex;gap:14px;align-items:center;flex-wrap:wrap;}
   .partner-item__logo{
-    width:220px;height:150px;border-radius:12px;background:#fff;
-    border:1px solid var(--line);display:flex;align-items:center;justify-content:center;padding:18px;
+    height:120px;min-width:120px;max-width:260px;border-radius:12px;background:#fff;
+    border:1px solid var(--line);display:flex;align-items:center;justify-content:center;padding:16px;
   }
-  .partner-item__logo img{max-width:100%;max-height:100%;object-fit:contain;}
+  .partner-item__logo img{height:100%;width:auto;max-width:100%;object-fit:contain;}
   .partner-item__body{flex:1 1 240px;min-width:240px;}
   .partner-item__name{font-weight:800;margin-bottom:4px;font-size:1rem;}
   .partner-item__desc{color:var(--ink-soft);font-size:.92rem;}
   @media (max-width:640px){
-    .partner-item__logo{width:150px;height:110px;padding:14px;}
+    .partner-item__logo{height:90px;min-width:90px;padding:12px;}
   }
   @media (max-width:520px){
     .partner-item{flex-direction:column;align-items:flex-start;}
@@ -658,7 +658,6 @@
 <div class="sponsor-strip">
   <p class="sponsor-strip__label">Con el apoyo de</p>
   <div class="sponsor-strip__logos">
-    <img src="assets/todomotorhome-logo.avif" alt="Todo Motorhome" loading="lazy">
     <img src="assets/DAKO.svg" alt="Dako Trailers" loading="lazy">
     <img src="assets/Avinice.svg" alt="Avin Ice" loading="lazy">
     <img src="assets/Ruedas RAR.svg" alt="Ruedas RAR" loading="lazy">
@@ -666,6 +665,7 @@
     <img src="assets/Parcamp.svg" alt="Parcamp" loading="lazy">
     <img src="assets/Crisven.svg" alt="Crisven" loading="lazy">
     <img src="assets/Barbus.svg" alt="Barbus" loading="lazy">
+    <img src="assets/todomotorhome-logo-black.png" alt="Todo Motorhome" loading="lazy">
   </div>
 </div>
 
@@ -726,7 +726,6 @@
 
 <!-- La casa rodante -->
 <section class="section section--narrow" id="casa-rodante">
-  <img class="casa-rodante__logo" src="assets/DAKO.svg" alt="Dako Trailers" loading="lazy">
   <p class="section__kicker">El premio</p>
   <h2 class="section__title">La Casa Rodante Dako 350</h2>
   <p class="section__lead">Especificaciones y equipamiento confirmado de la unidad en sorteo.</p>
@@ -902,15 +901,6 @@
     </div>
     <div class="partner-item">
       <div class="partner-item__logos">
-        <div class="partner-item__logo"><img src="assets/todomotorhome-logo.avif" alt="Todo Motorhome" loading="lazy"></div>
-      </div>
-      <div class="partner-item__body">
-        <div class="partner-item__name">Todo Motorhome</div>
-        <div class="partner-item__desc">Provisión y gestión de la tecnología y plataforma del sorteo, liderazgo de la estrategia de marketing y comunicación, reportes de campañas y del sorteo, diseño del ploteo de la unidad, y aportación de las bases legales del acuerdo y del sorteo.</div>
-      </div>
-    </div>
-    <div class="partner-item">
-      <div class="partner-item__logos">
         <div class="partner-item__logo"><img src="assets/Ruedas RAR.svg" alt="Ruedas RAR" loading="lazy"></div>
         <div class="partner-item__logo"><img src="assets/AL-KO.svg" alt="ALKO Argentina" loading="lazy"></div>
       </div>
@@ -944,6 +934,15 @@
       <div class="partner-item__body">
         <div class="partner-item__name">Barbus</div>
         <div class="partner-item__desc">Provisión del certificado de empadronamiento CR.</div>
+      </div>
+    </div>
+    <div class="partner-item">
+      <div class="partner-item__logos">
+        <div class="partner-item__logo"><img src="assets/todomotorhome-logo-black.png" alt="Todo Motorhome" loading="lazy"></div>
+      </div>
+      <div class="partner-item__body">
+        <div class="partner-item__name">Todo Motorhome</div>
+        <div class="partner-item__desc">Provisión y gestión de la tecnología y plataforma del sorteo, liderazgo de la estrategia de marketing y comunicación, reportes de campañas y del sorteo, diseño del ploteo de la unidad, y aportación de las bases legales del acuerdo y del sorteo.</div>
       </div>
     </div>
   </div>
