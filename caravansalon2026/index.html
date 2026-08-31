@@ -526,18 +526,18 @@
   }
 
   /* ---------- cámara ---------- */
-  function flyTo(target, { dur = 500, ease = EASE, onArrive } = {}) {
+  function flyTo(target, { dur = 1150, ease = EASE } = {}) {
     busy = true;
     animate(cam, { x: target.x, y: target.y, zoom: target.zoom,
-      duration: dur * MOTION, ease, onUpdate: render, onComplete: () => { busy = false; if (onArrive) onArrive(); } });
+      duration: dur * MOTION, ease, onUpdate: render, onComplete: () => { busy = false; } });
   }
-  function flyDive(s, onArrive) {
+  function flyDive(s) {
     busy = true;
     const target = { x: s.cx, y: s.cy, zoom: fitZoom(s) };
     animate(cam, { x: target.x, y: target.y,
       zoom: [ { to: target.zoom * 0.34, duration: 720 * MOTION, ease: 'inOutQuad' },
               { to: target.zoom, duration: 1030 * MOTION, ease: EASE } ],
-      duration: 1750 * MOTION, ease: EASE, onUpdate: render, onComplete: () => { busy = false; if (onArrive) onArrive(); } });
+      duration: 1750 * MOTION, ease: EASE, onUpdate: render, onComplete: () => { busy = false; } });
   }
   function overviewCam() {
     const pad = 200;
@@ -561,14 +561,11 @@
     setHud(i);
     Object.values(sceneRegistry).forEach(sc => sc.stop());
     const s = stations[i], isNew = i !== prev;
+    if (s.el.dataset.fly === 'dive' && isNew) flyDive(s);
+    else flyTo({ x: s.cx, y: s.cy, zoom: fitZoom(s) }, opts);
     const scene = s.el.dataset.scene;
-    if (!(scene && sceneRegistry[scene])) prepareIntro(s.el);
-    const reveal = () => {
-      if (scene && sceneRegistry[scene]) sceneRegistry[scene].run(s.el);
-      else playIntro(s, true);
-    };
-    if (s.el.dataset.fly === 'dive' && isNew) flyDive(s, reveal);
-    else flyTo({ x: s.cx, y: s.cy, zoom: fitZoom(s) }, { ...opts, onArrive: reveal });
+    if (scene && sceneRegistry[scene]) sceneRegistry[scene].run(s.el);
+    else playIntro(s, true);
   }
 
   /* ---------- intro genérica ---------- */
@@ -593,9 +590,9 @@
   }
   function releaseClips(el) { el.querySelectorAll('.clip').forEach(c => { c.style.overflow = 'visible'; }); }
 
-  function prepareIntro(el) {
-    if (el.dataset.prepared) return;
-    el.dataset.prepared = '1';
+  function playIntro(s, isNew) {
+    if (!isNew) return;
+    const el = s.el;
     el.querySelectorAll('.clip').forEach(c => { c.style.overflow = 'hidden'; });
     el.querySelectorAll('[data-split="lines"]').forEach(splitLines);
     el.querySelectorAll('[data-split="lines"]').forEach(fitHeading);
@@ -608,19 +605,6 @@
     const fadeTargets = [...fades, ...autos];
     if (lines.length) utils.set(lines, { translateY: '100%' });
     if (fadeTargets.length) utils.set(fadeTargets, { opacity: 0, translateY: 22 });
-  }
-
-  function playIntro(s, isNew) {
-    if (!isNew) return;
-    const el = s.el;
-    prepareIntro(el);
-    const lines = el.querySelectorAll('.lineInner');
-    const fades = Array.from(el.querySelectorAll('[data-fade]'));
-    let autos = [];
-    if (!lines.length && !fades.length) {
-      autos = Array.from(el.children).filter(c => getComputedStyle(c).position !== 'absolute');
-    }
-    const fadeTargets = [...fades, ...autos];
     if (lines.length) animate(lines, { translateY: ['100%', '0%'], duration: 1150 * MOTION,
       delay: anime.stagger(150 * MOTION), ease: EASE, onComplete: () => releaseClips(el) });
     else releaseClips(el);
