@@ -593,7 +593,7 @@
   function playIntro(s, isNew) {
     if (!isNew) return;
     const el = s.el;
-    el.querySelectorAll('.clip').forEach(c => { c.style.overflow = 'hidden'; });
+    el.querySelectorAll('.clip').forEach(c => { c.style.overflow = 'visible'; });
     el.querySelectorAll('[data-split="lines"]').forEach(splitLines);
     el.querySelectorAll('[data-split="lines"]').forEach(fitHeading);
     const lines = el.querySelectorAll('.lineInner');
@@ -603,13 +603,15 @@
       autos = Array.from(el.children).filter(c => getComputedStyle(c).position !== 'absolute');
     }
     const fadeTargets = [...fades, ...autos];
-    if (lines.length) utils.set(lines, { translateY: '100%' });
+    /* Fade + small rise instead of a translateY(100%) mask-slide: a hard
+       clip mask hides descenders (g, p, y, j) until the line has almost
+       fully arrived, which reads as "letters cut off, then fixed". */
+    if (lines.length) utils.set(lines, { opacity: 0, translateY: 24 });
     if (fadeTargets.length) utils.set(fadeTargets, { opacity: 0, translateY: 22 });
-    if (lines.length) animate(lines, { translateY: ['100%', '0%'], duration: 1150 * MOTION,
-      delay: anime.stagger(150 * MOTION), ease: EASE, onComplete: () => releaseClips(el) });
-    else releaseClips(el);
+    if (lines.length) animate(lines, { opacity: [0, 1], translateY: [24, 0], duration: 950 * MOTION,
+      delay: anime.stagger(130 * MOTION), ease: 'out(2)' });
     if (fadeTargets.length) animate(fadeTargets, { opacity: [0, 1], translateY: [22, 0],
-      duration: 900 * MOTION, delay: anime.stagger(110 * MOTION, { start: (lines.length ? 440 : 90) * MOTION }),
+      duration: 900 * MOTION, delay: anime.stagger(110 * MOTION, { start: (lines.length ? 380 : 90) * MOTION }),
       ease: 'out(2)' });
   }
 
