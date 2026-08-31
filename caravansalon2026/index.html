@@ -526,7 +526,7 @@
   }
 
   /* ---------- cámara ---------- */
-  function flyTo(target, { dur = 1150, ease = EASE, onArrive } = {}) {
+  function flyTo(target, { dur = 500, ease = EASE, onArrive } = {}) {
     busy = true;
     animate(cam, { x: target.x, y: target.y, zoom: target.zoom,
       duration: dur * MOTION, ease, onUpdate: render, onComplete: () => { busy = false; if (onArrive) onArrive(); } });
