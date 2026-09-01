@@ -285,6 +285,14 @@
 
   /* ---------- pilares (4 columnas) ---------- */
   .four { display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px; margin-top: 48px; }
+
+  /* ---------- video (placeholder: archivo pesado, se agrega localmente) ---------- */
+  .video-box { width: 1240px; max-width: 100%; aspect-ratio: 16 / 9; margin: 48px auto 0;
+               border: 1px solid rgba(244,241,236,.22); border-radius: 10px; overflow: hidden;
+               background: rgba(244,241,236,.05); display: flex; align-items: center; justify-content: center; }
+  .video-box video { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .video-cap { text-align: center; margin-top: 16px; font-size: 15px; letter-spacing: .04em;
+               color: rgba(244,241,236,.45); }
 </style>
 </head>
 <body>
@@ -293,163 +301,71 @@
   <div id="world">
 <section class="station st-title nomark" id="s1" data-name="Cover" data-x="0" data-y="0">
   <div class="lg-tm hero" data-fade></div>
-  <div class="eyebrow ico-row" data-fade><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="3.2"/><circle cx="18" cy="12" r="3.2"/><path d="M9.2 12h5.6"/></svg>3rd Experience Expo Motorhome · Caravan Salon Düsseldorf 2026</div>
-  <h1 class="display" data-split="lines">Unlocking<br>South America</h1>
-  <p class="lead" data-fade>Building direct, actionable B2B bridges between European industry leaders — technology, know-how, and manufacturing expertise — and the fastest-growing RV markets in South America.</p>
-  <div class="credits" data-fade>Patricio Bruno — Founder, Todo Motorhome Latin America<br>3rd consecutive year exhibiting at Caravan Salon Düsseldorf</div>
+  <div class="eyebrow ico-row" data-fade><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="3.2"/><circle cx="18" cy="12" r="3.2"/><path d="M9.2 12h5.6"/></svg>After our talks at Caravan Salon Düsseldorf 2026</div>
+  <h1 class="display" data-split="lines">Let's Go to<br>South America</h1>
+  <p class="lead" data-fade>Argentina and Brazil want your products. Come with us to Curitiba, Brazil, and meet the people who can make it happen.</p>
+  <div class="credits" data-fade>Patricio Bruno — Founder, Todo Motorhome Latin America</div>
 </section>
 
-<section class="station st-meta" id="s2" data-name="What is Todo Motorhome" data-x="2300" data-y="0">
-  <div class="eyebrow ico-row" data-fade><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2.4"/><circle cx="12" cy="4" r="1.8"/><circle cx="5" cy="18" r="1.8"/><circle cx="19" cy="18" r="1.8"/><path d="M12 6.2V9.8M10.3 13.6L6.4 16.6M13.7 13.6l3.9 3"/></svg>Who We Are</div>
-  <h2 class="display sm" data-split="lines">The Central Ecosystem<br>for the RV Industry in LATAM</h2>
-  <div class="two" data-fade>
-    <div class="col">
-      <div class="ch">Origin &amp; Mission</div>
-      <ul>
-        <li>Created to structure and formalize a fragmented, post-pandemic market</li>
-        <li>Accelerating the technological and industrial transformation of recreational vehicles across South America</li>
-      </ul>
-    </div>
-    <div class="col">
-      <div class="ch">Two Platforms, One Ecosystem</div>
-      <ul>
-        <li><b>B2C</b> — the leading marketplace for buying, selling, and outfitting motorhomes in Argentina and Brazil</li>
-        <li><b>B2B</b> — connecting suppliers, manufacturers, rental fleets, and service networks</li>
-      </ul>
-    </div>
+<section class="station st-div invert" id="s2" data-name="Expo Motorhome Curitiba" data-x="2300" data-y="0">
+  <div class="eyebrow ico-row" data-fade><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Nov 25–29, 2026 · Curitiba, Brazil</div>
+  <h2 class="display" data-split="lines">This Is<br>Expo Motorhome</h2>
+  <div class="video-box" data-fade>
+    <video controls playsinline preload="none">
+      <source src="expomotorhome.mp4" type="video/mp4">
+    </video>
   </div>
-  <div class="mark"></div>
+  <div class="video-cap" data-fade>expomotorhome.mp4</div>
 </section>
 
-<section class="station st-meta" id="s3" data-name="Institutional Leadership" data-x="4600" data-y="0">
-  <div class="eyebrow ico-row" data-fade><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M4 21V10M20 21V10M2 10l10-6 10 6M7 10v6M12 10v6M17 10v6"/></svg>Institutional &amp; B2B Leadership</div>
-  <h2 class="display sm" data-split="lines">Structuring the Market:<br>Data, Alliances &amp; Public-Private Integration</h2>
+<section class="station st-meta" id="s3" data-name="Who We Meet" data-x="4600" data-y="0">
+  <div class="eyebrow ico-row" data-fade><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2.4"/><circle cx="12" cy="4" r="1.8"/><circle cx="5" cy="18" r="1.8"/><circle cx="19" cy="18" r="1.8"/><path d="M12 6.2V9.8M10.3 13.6L6.4 16.6M13.7 13.6l3.9 3"/></svg>Who We Meet</div>
+  <h2 class="display sm" data-split="lines">The People<br>You'll Meet There</h2>
   <div class="four" data-fade>
     <div class="col">
-      <div class="ch">National RV Census</div>
-      <ul><li>Official industry data generated alongside National Tourism Secretariats and Auto Clubs (ACA)</li></ul>
+      <div class="ch">Distributors</div>
+      <ul><li>People in Argentina and Brazil ready to buy vehicles and parts</li></ul>
     </div>
     <div class="col">
-      <div class="ch">Industry Chambers</div>
-      <ul><li>Direct institutional alliances with FATCRA (Argentina) and ANFATRE (Brazil)</li></ul>
+      <div class="ch">State Members</div>
+      <ul><li>Government contacts who help with customs and paperwork</li></ul>
     </div>
     <div class="col">
-      <div class="ch">Public Policy &amp; Infrastructure</div>
-      <ul><li>Advising government entities on safe campsites, waste-disposal stations, and road frameworks</li></ul>
+      <div class="ch">Import/Export Specialists</div>
+      <ul><li>People who know how to move goods across the border</li></ul>
     </div>
     <div class="col">
-      <div class="ch">Community Leadership</div>
-      <ul><li>Organizing major B2B and B2C national gatherings across the continent</li></ul>
+      <div class="ch">Exhibitors</div>
+      <ul><li>Local builders who need supplies and vehicles</li></ul>
     </div>
   </div>
   <div class="mark"></div>
 </section>
 
-<section class="station st-meta" id="s4" data-name="Market Reality" data-x="6900" data-y="0">
-  <div class="eyebrow ico-row" data-fade><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15a8 8 0 0116 0"/><path d="M12 15l4-5"/><circle cx="12" cy="15" r="1" fill="currentColor" stroke="none"/></svg>The Market Reality</div>
-  <h2 class="display sm" data-split="lines">High Demand vs. Artisanal Supply:<br>A First-Mover Advantage</h2>
-  <div class="stats two-col" data-fade>
-    <div class="s hot"><div class="n">85%+</div><div class="k">of conversions are built custom, unit-by-unit, with minimal serial production</div></div>
-  </div>
+<section class="station st-meta" id="s4" data-name="What They Need" data-x="6900" data-y="0">
+  <div class="eyebrow ico-row" data-fade><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 15l6-6"/><path d="M8 7.5L10 5.6a3.6 3.6 0 015 5l-1.8 1.9"/><path d="M16 16.5L14 18.4a3.6 3.6 0 01-5-5l1.8-1.9"/></svg>It's Not Just Products</div>
+  <h2 class="display sm" data-split="lines">What They<br>Really Want</h2>
   <div class="three" data-fade>
     <div class="col">
-      <div class="ch">Vehicles, Campers &amp; Components</div>
-      <ul>
-        <li>Opportunities span complete vehicles, camper units, and modular boxes — not only accessories</li>
-        <li>Plus certified components: refrigeration, HVAC, electrical/solar systems, chassis technology, and modular windows</li>
-      </ul>
+      <div class="ch">Knowledge</div>
+      <ul><li>How to pick the right parts and meet the right standards</li></ul>
     </div>
     <div class="col">
-      <div class="ch">Process &amp; Know-How Gap</div>
-      <ul><li>Beyond hardware — local builders need production processes, quality standardization, industrialization methods, and the technical training to apply them</li></ul>
+      <div class="ch">Process &amp; Methods</div>
+      <ul><li>How to build at scale, without losing quality</li></ul>
     </div>
     <div class="col">
-      <div class="ch">Regulatory Tailwinds</div>
-      <ul><li>Trade opening in Argentina and mandatory homologation requirements in both nations are pushing coachbuilders toward certified international parts</li></ul>
-    </div>
-  </div>
-  <div class="note" data-fade>Emerging sectors — professional rental fleets and eco-campsite networks — are still in their infancy.</div>
-  <div class="mark"></div>
-</section>
-
-<section class="station st-meta" id="s5" data-name="Our Core Role" data-x="9200" data-y="0">
-  <div class="eyebrow ico-row" data-fade><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 15l6-6"/><path d="M8 7.5L10 5.6a3.6 3.6 0 015 5l-1.8 1.9"/><path d="M16 16.5L14 18.4a3.6 3.6 0 01-5-5l1.8-1.9"/></svg>Our Core Role</div>
-  <h2 class="display sm" data-split="lines">Your Strategic Entry Point:<br>We Are the Bridge, Not Distributors</h2>
-  <div class="three" data-fade>
-    <div class="col">
-      <div class="ch">Direct Relationships</div>
-      <ul><li>We do not buy, resell, or distribute inventory</li></ul>
-    </div>
-    <div class="col">
-      <div class="ch">Strategic Matchmaking</div>
-      <ul><li>Connecting European executives directly with vetted factory owners, fleet buyers, and distributors</li></ul>
-    </div>
-    <div class="col">
-      <div class="ch">Frictionless Market Entry</div>
-      <ul><li>Localized market intelligence, regulatory clarity, and verified business contacts</li></ul>
+      <div class="ch">Motorhome Culture</div>
+      <ul><li>What decades of camping culture in Europe actually looks like</li></ul>
     </div>
   </div>
   <div class="mark"></div>
 </section>
 
-<section class="station st-div invert" id="s6" data-name="3rd Experience Expo Motorhome" data-x="11500" data-y="0">
-  <div class="eyebrow ico-row" data-fade><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>The Business Mission</div>
-  <h2 class="display" data-split="lines">3rd Experience<br>Expo Motorhome 2026</h2>
-  <div class="stats two-col" data-fade>
-    <div class="s hot"><div class="n">Nov 25–29</div><div class="k">Curitiba, Paraná, Brazil</div></div>
-    <div class="s"><div class="n">#1</div><div class="k">Latin America's largest trade fair for motorhomes, trailers &amp; outdoor equipment</div></div>
-  </div>
-  <p class="lead" data-fade>A curated delegation of high-level Latin American factory owners scaling operations, sector institutions, and government trade officials.</p>
-  <div class="mark"></div>
-</section>
-
-<section class="station st-meta" id="s7" data-name="Business Pillars" data-x="13800" data-y="0">
-  <div class="eyebrow ico-row" data-fade><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12l2 2 4-4M8 16h5"/></svg>Business Pillars &amp; Itinerary</div>
-  <h2 class="display sm" data-split="lines">Factory Access, Matchmaking<br>&amp; Diplomatic Backing</h2>
-  <div class="four" data-fade>
-    <div class="col">
-      <div class="ch">Technical Factory Visits</div>
-      <ul><li>Apolo Trailer, Trailemar, Serro, Tendaro, and Só Trailer</li></ul>
-    </div>
-    <div class="col">
-      <div class="ch">Exclusive Talks &amp; Panels</div>
-      <ul><li>Al-Ko Brasil, Renogy, Marcopolo, Santo Inácio, Vegini Motors, Motor Trailer, Itu Trailer, and Duaron</li></ul>
-    </div>
-    <div class="col">
-      <div class="ch">Private B2B Hub</div>
-      <ul>
-        <li>Dedicated meeting rooms and showcase presence at the Tudo Motorhome Brasil stand</li>
-        <li>Exclusive meetings with Argentinian and Brazilian distributors and buyers, curated for direct deal-making</li>
-      </ul>
-    </div>
-    <div class="col">
-      <div class="ch">Diplomatic Support</div>
-      <ul><li>Strategic alliance with Invest Paraná and a private session at the Argentine Consulate in Curitiba</li></ul>
-    </div>
-  </div>
-  <div class="mark"></div>
-</section>
-
-<section class="station st-tbl" id="s8" data-name="Commercial Terms" data-x="16100" data-y="0">
-  <div class="eyebrow ico-row" data-fade><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M8.7 7.3a2.6 2.6 0 012.6-2.6h1.4a2.6 2.6 0 010 5.2h-1.4a2.6 2.6 0 000 5.2h1.4a2.6 2.6 0 002.6-2.6"/></svg>Commercial Terms</div>
-  <h2 class="display sm" data-split="lines">Turnkey All-Inclusive<br>Business Delegation</h2>
-  <table class="tbl txt dense" data-fade>
-    <thead><tr><th>Pillar</th><th>Inclusions</th></tr></thead>
-    <tbody>
-      <tr><td class="m">Logistics &amp; Mobility</td><td>Private dedicated bus for the entire itinerary, factory visits, and daily transfers</td></tr>
-      <tr><td class="m">Accommodation</td><td>Premium hotel lodging (double occupancy)</td></tr>
-      <tr><td class="m">Gastronomy</td><td>Full board included — daily breakfasts, lunches, corporate dinners, and a welcome BBQ</td></tr>
-      <tr><td class="m">Deal Support</td><td>Professional trilingual business translator (Spanish / Portuguese / English)</td></tr>
-      <tr><td class="m">Experiences</td><td>Guided Curitiba city tour and an exclusive shopping tour</td></tr>
-    </tbody>
-  </table>
-  <div class="mark"></div>
-</section>
-
-<section class="station st-title invert nomark" id="s9" data-name="Join the Delegation" data-x="18400" data-y="0">
-  <div class="eyebrow ico-row" data-fade><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4"/><path d="M5 4h11l-3 4 3 4H5"/></svg>Join the Delegation</div>
+<section class="station st-title invert nomark" id="s5" data-name="Join the Delegation" data-x="9200" data-y="0">
+  <div class="eyebrow ico-row" data-fade><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4"/><path d="M5 4h11l-3 4 3 4H5"/></svg>Come With Us</div>
   <h1 class="display" data-split="lines">See You<br>in Curitiba</h1>
-  <p class="lead" data-fade>Todo Motorhome Latin America — your strategic entry point into South America.</p>
+  <p class="lead" data-fade>Nov 25–29, 2026, in Curitiba, Brazil. Latin America's biggest motorhome fair.</p>
   <div class="lg-tm hero" data-fade></div>
 </section>
   </div>
