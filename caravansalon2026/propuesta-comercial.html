@@ -137,6 +137,19 @@
   .cover-meta .m .k { font-size: 10px; text-transform: uppercase; letter-spacing: .18em;
                        color: var(--muted); margin-bottom: 6px; }
   .cover-meta .m .v { font-size: 15.5px; font-weight: 600; color: var(--ink); }
+
+  /* ---------- photos ---------- */
+  .photo { border-radius: 10px; overflow: hidden; box-shadow: 0 14px 34px rgba(44,52,64,.14); }
+  .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .photo-strip { margin-top: 28px; aspect-ratio: 1200 / 640; }
+  .photo-cap { margin-top: 10px; font-size: 11.5px; color: var(--muted); letter-spacing: .02em; }
+  .page.invert .photo-cap { color: rgba(244,241,236,.5); }
+
+  .cover-badge { position: absolute; top: 20mm; right: 18mm; width: 92px; aspect-ratio: 399 / 501; }
+
+  .gallery-hero { margin-top: 26px; aspect-ratio: 16 / 7; }
+  .gallery-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
+  .gallery-row .photo { aspect-ratio: 3 / 2; }
 </style>
 </head>
 <body>
@@ -148,6 +161,7 @@
     <div class="sep"></div>
     <img class="lg-em" src="assets/expomotorhomeLogo-dark.svg" alt="Expo Motorhome">
   </div>
+  <div class="photo cover-badge"><img src="assets/1.jpg" alt="Expo Motorhome 2026, November 25-29, Pinhais-Paraná"></div>
 
   <div class="body">
     <div class="eyebrow">Commercial Proposal</div>
@@ -171,7 +185,7 @@
   </div>
 </section>
 
-<!-- ============ PAGE 2, MISSION & STRATEGY ============ -->
+<!-- ============ PAGE 2, INSIDE EXPO MOTORHOME (GALLERY) ============ -->
 <section class="page">
   <div class="hdr">
     <div class="brands">
@@ -183,6 +197,37 @@
   </div>
 
   <div class="bgnum">02</div>
+  <div class="body">
+    <div class="eyebrow">The Event</div>
+    <h2 class="display" style="font-size:46px">Inside Expo Motorhome</h2>
+    <p class="lead" style="margin-top:14px">A look at the floor, the exhibitors, and the community that
+      gathers in Curitiba every November.</p>
+
+    <div class="photo gallery-hero"><img src="assets/3.jpg" alt="Motorhomes and exhibitors on the Expo Motorhome show floor"></div>
+    <div class="gallery-row">
+      <div class="photo"><img src="assets/2.jpg" alt="Visitors at the Marcopolo Motorhome stand"></div>
+      <div class="photo"><img src="assets/6.jpg" alt="Overhead view of the Expo Motorhome exhibition hall"></div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span>Commercial Proposal · Experience Expo Motorhome 2026</span>
+    <span>02</span>
+  </div>
+</section>
+
+<!-- ============ PAGE 3, MISSION & STRATEGY ============ -->
+<section class="page">
+  <div class="hdr">
+    <div class="brands">
+      <img class="lg-tm" src="assets/todomotorhome-logo.svg" alt="Todo Motorhome">
+      <div class="sep"></div>
+      <img class="lg-em" src="assets/expomotorhomeLogo-dark.svg" alt="Expo Motorhome">
+    </div>
+    <div class="tag">Curitiba · Nov 25–29, 2026</div>
+  </div>
+
+  <div class="bgnum">03</div>
   <div class="body">
     <div class="eyebrow"><span class="no">01</span> Mission &amp; Commercial Strategy</div>
     <h2 class="display" style="font-size:46px">A Strategic Bridge Between<br>Two Markets</h2>
@@ -197,11 +242,11 @@
 
   <div class="foot">
     <span>Commercial Proposal · Experience Expo Motorhome 2026</span>
-    <span>02</span>
+    <span>03</span>
   </div>
 </section>
 
-<!-- ============ PAGE 3, DELEGATION PROFILE ============ -->
+<!-- ============ PAGE 4, DELEGATION PROFILE ============ -->
 <section class="page">
   <div class="hdr">
     <div class="brands">
@@ -212,7 +257,7 @@
     <div class="tag">Curitiba · Nov 25–29, 2026</div>
   </div>
 
-  <div class="bgnum">03</div>
+  <div class="bgnum">04</div>
   <div class="body">
     <div class="eyebrow"><span class="no">02</span> Delegation Profile</div>
     <h2 class="display" style="font-size:46px">Access to Every Key<br>Decision-Maker</h2>
@@ -240,11 +285,11 @@
 
   <div class="foot">
     <span>Commercial Proposal · Experience Expo Motorhome 2026</span>
-    <span>03</span>
+    <span>04</span>
   </div>
 </section>
 
-<!-- ============ PAGE 4, MARKET CONTEXT I: THE OPPORTUNITY ============ -->
+<!-- ============ PAGE 5, MARKET CONTEXT I: THE OPPORTUNITY ============ -->
 <section class="page">
   <div class="hdr">
     <div class="brands">
@@ -255,7 +300,7 @@
     <div class="tag">Curitiba · Nov 25–29, 2026</div>
   </div>
 
-  <div class="bgnum">04</div>
+  <div class="bgnum">05</div>
   <div class="body">
     <div class="eyebrow"><span class="no">03</span> Market Context</div>
     <h2 class="display" style="font-size:46px">Demand Is Exploding.<br>Supply Never Caught Up.</h2>
@@ -285,11 +330,11 @@
 
   <div class="foot">
     <span>Commercial Proposal · Experience Expo Motorhome 2026</span>
-    <span>04</span>
+    <span>05</span>
   </div>
 </section>
 
-<!-- ============ PAGE 5, MARKET CONTEXT II: THE BRAND GAP ============ -->
+<!-- ============ PAGE 6, MARKET CONTEXT II: THE BRAND GAP ============ -->
 <section class="page">
   <div class="hdr">
     <div class="brands">
@@ -300,7 +345,7 @@
     <div class="tag">Curitiba · Nov 25–29, 2026</div>
   </div>
 
-  <div class="bgnum">05</div>
+  <div class="bgnum">06</div>
   <div class="body">
     <div class="eyebrow"><span class="no">03</span> Market Context</div>
     <h2 class="display" style="font-size:46px">A Market Waiting<br>for Real Brands</h2>
@@ -331,11 +376,11 @@
 
   <div class="foot">
     <span>Commercial Proposal · Experience Expo Motorhome 2026</span>
-    <span>05</span>
+    <span>06</span>
   </div>
 </section>
 
-<!-- ============ PAGE 6, CORE ACTIVITIES I ============ -->
+<!-- ============ PAGE 7, CORE ACTIVITIES I ============ -->
 <section class="page">
   <div class="hdr">
     <div class="brands">
@@ -346,7 +391,7 @@
     <div class="tag">Curitiba · Nov 25–29, 2026</div>
   </div>
 
-  <div class="bgnum">06</div>
+  <div class="bgnum">07</div>
   <div class="body">
     <div class="eyebrow"><span class="no">04</span> Core Activities &amp; Business Pillars</div>
     <h2 class="display" style="font-size:46px">Where the Deals<br>Actually Happen</h2>
@@ -376,15 +421,17 @@
         </ul>
       </div>
     </div>
+
+    <div class="photo photo-strip" style="aspect-ratio:739/300"><img src="assets/4.jpg" alt="Santo Inácio Motorhomes stand at Expo Motorhome"></div>
   </div>
 
   <div class="foot">
     <span>Commercial Proposal · Experience Expo Motorhome 2026</span>
-    <span>06</span>
+    <span>07</span>
   </div>
 </section>
 
-<!-- ============ PAGE 7, CORE ACTIVITIES II: INSTITUTIONAL PRESENCE ============ -->
+<!-- ============ PAGE 8, CORE ACTIVITIES II: INSTITUTIONAL PRESENCE ============ -->
 <section class="page">
   <div class="hdr">
     <div class="brands">
@@ -395,7 +442,7 @@
     <div class="tag">Curitiba · Nov 25–29, 2026</div>
   </div>
 
-  <div class="bgnum">07</div>
+  <div class="bgnum">08</div>
   <div class="body">
     <div class="eyebrow"><span class="no">04</span> Core Activities &amp; Business Pillars</div>
     <h2 class="display" style="font-size:46px">Institutional Presence</h2>
@@ -418,15 +465,17 @@
         Curitiba to facilitate bilateral trade and provide legal and institutional security for your
         projects.</p>
     </div>
+
+    <div class="photo photo-strip" style="aspect-ratio:1200/430; margin-top:34px"><img src="assets/5.jpg" alt="Rooftop tent camping setup on display at Expo Motorhome"></div>
   </div>
 
   <div class="foot">
     <span>Commercial Proposal · Experience Expo Motorhome 2026</span>
-    <span>07</span>
+    <span>08</span>
   </div>
 </section>
 
-<!-- ============ PAGE 8, INCLUSIONS ============ -->
+<!-- ============ PAGE 9, INCLUSIONS ============ -->
 <section class="page">
   <div class="hdr">
     <div class="brands">
@@ -437,7 +486,7 @@
     <div class="tag">Curitiba · Nov 25–29, 2026</div>
   </div>
 
-  <div class="bgnum">08</div>
+  <div class="bgnum">09</div>
   <div class="body">
     <div class="eyebrow"><span class="no">05</span> Inclusions, All-Inclusive Format</div>
     <h2 class="display" style="font-size:46px">Focus on Business.<br>We Handle the Rest.</h2>
@@ -464,7 +513,8 @@
         <div class="ico-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l9-6 9 6v11"/><path d="M9 21v-7h6v7"/></svg></div>
         <div>
           <div class="t">Premium Accommodation</div>
-          <div class="d">Hotel stay for the full mission, double occupancy.</div>
+          <div class="d">Hotel stay for the full mission in a double/twin room, one room with two beds,
+            shared by two people. A single-room upgrade is available on request for special needs.</div>
         </div>
       </div>
       <div class="inc">
@@ -503,11 +553,11 @@
 
   <div class="foot">
     <span>Commercial Proposal · Experience Expo Motorhome 2026</span>
-    <span>08</span>
+    <span>09</span>
   </div>
 </section>
 
-<!-- ============ PAGE 9, COMMERCIAL TERMS (CLOSING) ============ -->
+<!-- ============ PAGE 10, COMMERCIAL TERMS (CLOSING) ============ -->
 <section class="page invert">
   <div class="hdr">
     <div class="brands">
@@ -518,7 +568,7 @@
     <div class="tag">Curitiba · Nov 25–29, 2026</div>
   </div>
 
-  <div class="bgnum">09</div>
+  <div class="bgnum">10</div>
   <div class="body">
     <div class="eyebrow"><span class="no">06</span> Commercial Terms</div>
     <h2 class="display" style="font-size:46px">One Fee.<br>Everything Included.</h2>
@@ -542,7 +592,7 @@
 
   <div class="foot">
     <span>Commercial Proposal · Experience Expo Motorhome 2026</span>
-    <span>09</span>
+    <span>10</span>
   </div>
 </section>
 
