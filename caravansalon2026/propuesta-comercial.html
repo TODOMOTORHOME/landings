@@ -43,7 +43,7 @@
   .lg-em { height: 24px; width: auto; display: block; }
   .hdr .tag { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
 
-  .foot { position: absolute; left: 18mm; right: 18mm; bottom: 12mm;
+  .foot { position: absolute; left: 18mm; right: 18mm; bottom: 12mm; z-index: 1;
           display: flex; justify-content: space-between; gap: 24px;
           font-size: 9.5px; letter-spacing: .04em; color: var(--muted);
           border-top: 1px solid var(--line); padding-top: 10px; }
@@ -76,7 +76,7 @@
            font-weight: 700; font-size: 220px; line-height: 1; letter-spacing: -.04em;
            color: var(--ink); opacity: .045; z-index: 0; pointer-events: none; }
   .page.invert .bgnum { color: var(--bg); opacity: .06; }
-  .body, .hdr, .foot { position: relative; z-index: 1; }
+  .body, .hdr { position: relative; z-index: 1; }
 
   /* ---------- reusable grids ---------- */
   .cols3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 34px; }
@@ -463,7 +463,7 @@
         projects.</p>
     </div>
 
-    <div class="photo photo-strip" style="aspect-ratio:1200/430; margin-top:34px"><img src="assets/5.jpg" alt="Rooftop tent camping setup on display at Expo Motorhome"></div>
+    <div class="photo photo-strip" style="aspect-ratio:3/2; margin-top:34px"><img src="assets/caravansalon-2026-networking.jpeg" alt="Networking meeting with industry representatives at Caravan Salon 2026"></div>
   </div>
 
   <div class="foot">
