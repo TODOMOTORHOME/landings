@@ -603,6 +603,128 @@
     .legal-doc__toc ol{columns:1;}
   }
 
+  /* ============ DAKO CAROUSEL ============ */
+  .hero-photo .dako-carousel,
+  .dako-carousel {
+    position: relative;
+    width: 100%;
+    max-width: 540px;
+    min-width: 0;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 14px;
+    background: #f2f2f2;
+    box-shadow: 0 10px 30px rgba(0,0,0,.15);
+    font-family: inherit;
+  }
+  .dako-carousel *,
+  .dako-carousel *::before,
+  .dako-carousel *::after { box-sizing: border-box; }
+  .dako-carousel__stage {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    min-height: 220px;
+    overflow: hidden;
+    background: #f2f2f2;
+  }
+  .dako-carousel__slide {
+    display: none;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .dako-carousel__slide.is-active { display: block; }
+  .dako-carousel .dako-carousel__slide img {
+    display: block;
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 0;
+    box-shadow: none;
+    background: #f2f2f2;
+  }
+  .dako-carousel__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(0,0,0,.65);
+    color: #fff;
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+    appearance: none;
+  }
+  .dako-carousel__arrow:hover { background: rgba(0,0,0,.85); }
+  .dako-carousel__arrow:focus-visible,
+  .dako-carousel__dot:focus-visible {
+    outline: 3px solid #761e20;
+    outline-offset: 3px;
+  }
+  .dako-carousel__arrow--prev { left: 12px; }
+  .dako-carousel__arrow--next { right: 12px; }
+  .dako-carousel__counter {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    z-index: 5;
+    padding: 6px 10px;
+    border-radius: 20px;
+    background: rgba(0,0,0,.7);
+    color: #fff;
+    font-size: 13px;
+    line-height: 1.3;
+  }
+  .dako-carousel__dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 8px;
+    background: #fff;
+  }
+  .dako-carousel__dot {
+    flex: 0 0 auto;
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: #c6c6c6;
+    cursor: pointer;
+    appearance: none;
+  }
+  .dako-carousel__dot.is-active {
+    background: #761e20;
+    transform: scale(1.25);
+  }
+  @media (max-width: 900px) {
+    .hero-photo .dako-carousel,
+    .dako-carousel { max-width: 540px; }
+  }
+  @media (max-width: 600px) {
+    .dako-carousel { border-radius: 10px; }
+    .dako-carousel__stage { aspect-ratio: 4 / 3; min-height: 180px; }
+    .dako-carousel__arrow { width: 36px; height: 36px; font-size: 25px; }
+    .dako-carousel__arrow--prev { left: 8px; }
+    .dako-carousel__arrow--next { right: 8px; }
+    .dako-carousel__dots { gap: 9px; padding: 12px 6px; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .dako-carousel__slide.is-active img { animation: dakoFade .25s ease; }
+    @keyframes dakoFade { from { opacity: .55; } to { opacity: 1; } }
+  }
+
   </style>
 </head>
 <body>
@@ -659,7 +781,41 @@
       </div>
     </div>
     <div class="hero-photo">
-     <img src="assets/dako-trailer.jpg" alt="Casa Rodante Dako 250 enganchada a la camioneta, lista para viajar" width="1553" height="899" loading="eager">
+    <!-- <img src="assets/dako-trailer.jpg" alt="Casa Rodante Dako 250 enganchada a la camioneta, lista para viajar" width="1553" height="899" loading="eager">-->
+
+       <section class="dako-carousel" id="dakoCarousel" aria-label="Fotos do trailer DAKO 2.50" aria-roledescription="carrossel">
+        <div class="dako-carousel__stage">
+          <div class="dako-carousel__slide is-active">
+            <img src="assets/dako-trailer-1.webp" alt="Vista frontal e lateral do trailer DAKO 2.50" fetchpriority="high">
+          </div>
+          <div class="dako-carousel__slide">
+            <img src="assets/dako-trailer-2.webp" alt="Cozinha interna com pia, fogão e geladeira" loading="lazy">
+          </div>
+          <div class="dako-carousel__slide">
+            <img src="assets/dako-trailer-3.webp" alt="Vista traseira do trailer DAKO 2.50" loading="lazy">
+          </div>
+          <div class="dako-carousel__slide">
+            <img src="assets/dako-trailer-4.webp" alt="Interior do trailer com cozinha e área de mesa" loading="lazy">
+          </div>
+          <div class="dako-carousel__slide">
+            <img src="assets/dako-trailer-5.webp" alt="Vista externa lateral do trailer DAKO 2.50" loading="lazy">
+          </div>
+          <div class="dako-carousel__slide">
+            <img src="assets/dako-trailer-6.webp" alt="Mesa e bancos na área interna do trailer" loading="lazy">
+          </div>
+          <button class="dako-carousel__arrow dako-carousel__arrow--prev" type="button" aria-label="Imagem anterior">&#8249;</button>
+          <button class="dako-carousel__arrow dako-carousel__arrow--next" type="button" aria-label="Próxima imagem">&#8250;</button>
+          <span class="dako-carousel__counter" aria-live="polite" aria-atomic="true">1 / 6</span>
+        </div>
+        <div class="dako-carousel__dots" aria-label="Escolher imagem">
+          <button class="dako-carousel__dot is-active" type="button" aria-label="Mostrar imagem 1" aria-current="true"></button>
+          <button class="dako-carousel__dot" type="button" aria-label="Mostrar imagem 2"></button>
+          <button class="dako-carousel__dot" type="button" aria-label="Mostrar imagem 3"></button>
+          <button class="dako-carousel__dot" type="button" aria-label="Mostrar imagem 4"></button>
+          <button class="dako-carousel__dot" type="button" aria-label="Mostrar imagem 5"></button>
+          <button class="dako-carousel__dot" type="button" aria-label="Mostrar imagem 6"></button>
+        </div>
+      </section>
 
 
     </div>
@@ -1099,6 +1255,104 @@
     </div>
   </div>
 </footer>
+
+  <script>
+(function () {
+  'use strict';
+
+  function initDakoCarousel() {
+    var root = document.getElementById('dakoCarousel');
+    if (!root || root.dataset.carouselInitialized === 'true') return;
+
+    var slides = Array.prototype.slice.call(root.querySelectorAll('.dako-carousel__slide'));
+    var dots = Array.prototype.slice.call(root.querySelectorAll('.dako-carousel__dot'));
+    var prev = root.querySelector('.dako-carousel__arrow--prev');
+    var next = root.querySelector('.dako-carousel__arrow--next');
+    var counter = root.querySelector('.dako-carousel__counter');
+
+    if (!slides.length || dots.length !== slides.length || !prev || !next || !counter) {
+      console.error('[DAKO] Não foi possível iniciar: estrutura do carrossel incompleta.');
+      return;
+    }
+
+    root.dataset.carouselInitialized = 'true';
+    var current = 0;
+    var timer = null;
+    var startX = null;
+    var delay = 5000;
+
+    function show(index) {
+      current = (index + slides.length) % slides.length;
+      slides.forEach(function (slide, i) {
+        var active = i === current;
+        slide.classList.toggle('is-active', active);
+        slide.setAttribute('aria-hidden', active ? 'false' : 'true');
+      });
+      dots.forEach(function (dot, i) {
+        var active = i === current;
+        dot.classList.toggle('is-active', active);
+        if (active) dot.setAttribute('aria-current', 'true');
+        else dot.removeAttribute('aria-current');
+      });
+      counter.textContent = (current + 1) + ' / ' + slides.length;
+    }
+
+    function stop() {
+      if (timer !== null) {
+        window.clearInterval(timer);
+        timer = null;
+      }
+    }
+
+    function start() {
+      stop();
+      if (document.hidden) return;
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      timer = window.setInterval(function () { show(current + 1); }, delay);
+    }
+
+    function move(index) {
+      show(index);
+      start();
+    }
+
+    prev.addEventListener('click', function () { move(current - 1); });
+    next.addEventListener('click', function () { move(current + 1); });
+    dots.forEach(function (dot, i) {
+      dot.addEventListener('click', function () { move(i); });
+    });
+
+    root.addEventListener('mouseenter', stop);
+    root.addEventListener('mouseleave', start);
+    root.addEventListener('focusin', stop);
+    root.addEventListener('focusout', function (event) {
+      if (!root.contains(event.relatedTarget)) start();
+    });
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) stop(); else start();
+    });
+    root.addEventListener('touchstart', function (event) {
+      if (event.changedTouches.length) startX = event.changedTouches[0].clientX;
+    }, { passive: true });
+    root.addEventListener('touchend', function (event) {
+      if (startX === null || !event.changedTouches.length) { startX = null; return; }
+      var dx = event.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 45) move(current + (dx < 0 ? 1 : -1));
+      startX = null;
+    }, { passive: true });
+
+    show(0);
+    start();
+    console.info('[DAKO] Carrossel inicializado.');
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initDakoCarousel, { once: true });
+  } else {
+    initDakoCarousel();
+  }
+})();
+</script>
 
 </body>
 </html>
