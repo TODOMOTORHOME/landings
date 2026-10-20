@@ -469,21 +469,58 @@
   .important-banner .callout svg{width:22px;height:22px;flex-shrink:0;margin-top:2px;color:var(--gold-dark);}
   .important-banner .callout a{color:var(--gold-dark);font-weight:700;text-decoration:underline;}
 
-  .sponsor-strip{max-width:1080px;margin:0 auto;padding:28px 24px 4px;text-align:center;}
-  .sponsor-strip__label{
-    font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
-    color:var(--ink-soft);margin-bottom:18px;
+  .sponsor-strip{
+    max-width:1080px;margin:0 auto;padding:36px 32px 32px;text-align:center;
+    background:rgba(201,155,47,.08);border:1px solid rgba(201,155,47,.35);border-radius:22px;
   }
+  .sponsor-strip__eyebrow{
+    font-size:.76rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;
+    color:var(--gold-dark);margin-bottom:12px;
+  }
+  .sponsor-strip__title{font-size:1.4rem;font-weight:800;letter-spacing:-.01em;margin-bottom:10px;color:var(--ink);}
+  .sponsor-strip__desc{max-width:640px;margin:0 auto 32px;color:var(--ink-soft);font-size:.96rem;}
   .sponsor-strip__logos{
     display:grid;grid-template-columns:repeat(5,1fr);
-    justify-items:center;align-items:center;row-gap:32px;column-gap:24px;
+    justify-items:stretch;align-items:stretch;row-gap:20px;column-gap:20px;
   }
-  .sponsor-strip__logos img{height:90px;width:auto;max-width:100%;object-fit:contain;}
+  .sponsor-strip__logos img{height:70px;width:auto;max-width:100%;object-fit:contain;}
   @media (max-width:900px){
     .sponsor-strip__logos{grid-template-columns:repeat(3,1fr);}
   }
   @media (max-width:600px){
     .sponsor-strip__logos{grid-template-columns:repeat(2,1fr);}
+  }
+  .sponsor-item{
+    display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;
+    background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px 16px 20px;
+    transition:box-shadow .2s,transform .2s;
+  }
+  .sponsor-item:hover{box-shadow:0 10px 28px rgba(0,0,0,.08);transform:translateY(-3px);}
+  .sponsor-item__logo{display:flex;align-items:center;justify-content:center;margin-bottom:10px;}
+  .sponsor-item__name{font-weight:800;color:var(--ink);font-size:.95rem;}
+  .sponsor-item__handle{color:var(--ink-soft);font-size:.85rem;}
+  .sponsor-item__handle:hover{color:var(--gold-dark);}
+  .sponsor-item__follow{
+    display:inline-flex;align-items:center;justify-content:center;gap:7px;
+    margin-top:10px;padding:9px 20px;border-radius:999px;font-size:.85rem;font-weight:700;
+    border:1px solid var(--gold);color:#fff;background:var(--gold);
+    transition:background .15s,border-color .15s,box-shadow .15s,transform .15s;
+  }
+  .sponsor-item__follow:hover{background:var(--gold-dark);border-color:var(--gold-dark);box-shadow:0 6px 20px rgba(201,155,47,.35);transform:translateY(-1px);}
+  .sponsor-item__follow svg{width:15px;height:15px;flex-shrink:0;}
+  .sponsor-strip__footer{
+    display:flex;align-items:center;gap:16px;text-align:left;
+    margin-top:28px;padding:18px 22px;background:#fff;border:1px solid var(--line);border-radius:14px;
+  }
+  .sponsor-strip__footer-icon{
+    flex-shrink:0;width:40px;height:40px;border-radius:50%;background:var(--gold);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .sponsor-strip__footer-icon svg{width:20px;height:20px;}
+  .sponsor-strip__footer-title{font-weight:800;color:var(--ink);font-size:.98rem;margin-bottom:2px;}
+  .sponsor-strip__footer-desc{color:var(--ink-soft);font-size:.88rem;}
+  @media (max-width:600px){
+    .sponsor-strip__footer{flex-direction:column;text-align:center;}
   }
 
   .status-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
@@ -829,7 +866,9 @@
 
 <!-- Sponsors -->
 <div class="sponsor-strip">
-  <p class="sponsor-strip__label">Con el apoyo de</p>
+  <p class="sponsor-strip__eyebrow">Marcas participantes</p>
+  <h2 class="sponsor-strip__title">Seguí a las 16 marcas del sorteo en Instagram</h2>
+  <p class="sponsor-strip__desc">Hacé clic en cada marca y seguí sus perfiles oficiales en Instagram. Es un requisito obligatorio para participar en el sorteo.</p>
   <!--<div class="sponsor-strip__logos">
     <a href="https://www.todomotorhome.ar/store/dakotrailers" target="_blank" rel="noopener"><img src="assets/DAKO.svg" alt="Dako Trailers" loading="lazy"></a>
     <a href="https://www.todomotorhome.ar/store/avinice" target="_blank" rel="noopener"><img src="assets/Avinice.svg" alt="Avin Ice" loading="lazy"></a>
@@ -850,24 +889,179 @@
     <a href="https://www.todomotorhome.ar" target="_blank" rel="noopener"><img src="assets/todomotorhome-logo-black.png" alt="Todo Motorhome" loading="lazy"></a>
   </div>-->
   <div class="sponsor-strip__logos">
-    <a href="https://www.instagram.com/dako.trailers/" target="_blank" rel="noopener"><img src="assets/DAKO.svg" alt="Dako Trailers" loading="lazy"></a>
-    <a href="https://www.instagram.com/avin.ice/" target="_blank" rel="noopener"><img src="assets/Avinice.svg" alt="Avin Ice" loading="lazy"></a>
-    <a href="https://www.instagram.com/ruedasrar/" target="_blank" rel="noopener"><img src="assets/Ruedas RAR.svg" alt="Ruedas RAR" loading="lazy"></a>
-    <a href="https://www.instagram.com/alkoargentina/" target="_blank" rel="noopener"><img src="assets/AL-KO.svg" alt="ALKO Argentina" loading="lazy"></a>
-    <a href="https://www.instagram.com/parcamp.accesorios/" target="_blank" rel="noopener"><img src="assets/Parcamp.svg" alt="Parcamp" loading="lazy"></a>
-    <a href="https://www.instagram.com/crisvenventanas/" target="_blank" rel="noopener"><img src="assets/Crisven.svg" alt="Crisven" loading="lazy"></a>
-    <a href="https://www.instagram.com/barbus.ar/" target="_blank" rel="noopener"><img src="assets/Barbus.svg" alt="Barbus" loading="lazy"></a>
-    <a href="https://www.instagram.com/cabert.sas/" target="_blank" rel="noopener"><img src="assets/Cabert.svg" alt="Cabert" loading="lazy"></a>
-    <a href="https://www.instagram.com/gibertcar.motorhomes/" target="_blank" rel="noopener"><img src="assets/Gibertcar.svg" alt="Gibertcar" loading="lazy"></a>
-    <a href="https://www.instagram.com/centrointegraldelsemiacoplado/" target="_blank" rel="noopener"><img src="assets/cis.svg" alt="CIS" loading="lazy"></a>
-    <a href="https://www.todomotorhome.ar/store/panelcar" target="_blank" rel="noopener"><img src="assets/panelcar.svg" alt="Panelcar" loading="lazy"></a>
-    <a href="https://www.instagram.com/rga.neumaticos/" target="_blank" rel="noopener"><img src="assets/rga.svg" alt="RGA" loading="lazy"></a>
-    <a href="https://www.instagram.com/iotx.smarthome/" target="_blank" rel="noopener"><img src="assets/logo byn.jpg" alt="Iotx Smart RV" loading="lazy"></a>
-    <a href="https://www.instagram.com/caram.sa/" target="_blank" rel="noopener"><img src="assets/caram.jpg" alt="Caram" loading="lazy"></a>
-    <a href="https://www.instagram.com/nauticaycamping/" target="_blank" rel="noopener"><img src="assets/nauticaycamping.jpg" alt="Nautica &amp; Camping" loading="lazy"></a>
-    <a href="https://www.instagram.com/rototech.l.ch/" target="_blank" rel="noopener"><img src="assets/rototech.svg" alt="Rototech" loading="lazy"></a>
-    <a href="https://www.instagram.com/todomotorhome.ar/" target="_blank" rel="noopener"><img src="assets/todomotorhome-logo-black.png" alt="Todo Motorhome" loading="lazy"></a>
+    <div class="sponsor-item">
+      <a class="sponsor-item__logo" href="https://www.instagram.com/dako.trailers/" target="_blank" rel="noopener"><img src="assets/DAKO.svg" alt="Dako Trailers" loading="lazy"></a>
+      <div class="sponsor-item__name">Dako Trailers</div>
+      <a class="sponsor-item__handle" href="https://www.instagram.com/dako.trailers/" target="_blank" rel="noopener">@dako.trailers</a>
+      <a class="sponsor-item__follow" href="https://www.instagram.com/dako.trailers/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        Seguir
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </a>
+    </div>
+    <div class="sponsor-item">
+      <a class="sponsor-item__logo" href="https://www.instagram.com/avin.ice/" target="_blank" rel="noopener"><img src="assets/Avinice.svg" alt="Avin Ice" loading="lazy"></a>
+      <div class="sponsor-item__name">Avin Ice</div>
+      <a class="sponsor-item__handle" href="https://www.instagram.com/avin.ice/" target="_blank" rel="noopener">@avin.ice</a>
+      <a class="sponsor-item__follow" href="https://www.instagram.com/avin.ice/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        Seguir
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </a>
+    </div>
+    <div class="sponsor-item">
+      <a class="sponsor-item__logo" href="https://www.instagram.com/ruedasrar/" target="_blank" rel="noopener"><img src="assets/Ruedas RAR.svg" alt="Ruedas RAR" loading="lazy"></a>
+      <div class="sponsor-item__name">Ruedas RAR</div>
+      <a class="sponsor-item__handle" href="https://www.instagram.com/ruedasrar/" target="_blank" rel="noopener">@ruedasrar</a>
+      <a class="sponsor-item__follow" href="https://www.instagram.com/ruedasrar/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        Seguir
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </a>
+    </div>
+    <div class="sponsor-item">
+      <a class="sponsor-item__logo" href="https://www.instagram.com/alkoargentina/" target="_blank" rel="noopener"><img src="assets/AL-KO.svg" alt="ALKO Argentina" loading="lazy"></a>
+      <div class="sponsor-item__name">ALKO Argentina</div>
+      <a class="sponsor-item__handle" href="https://www.instagram.com/alkoargentina/" target="_blank" rel="noopener">@alkoargentina</a>
+      <a class="sponsor-item__follow" href="https://www.instagram.com/alkoargentina/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        Seguir
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </a>
+    </div>
+    <div class="sponsor-item">
+      <a class="sponsor-item__logo" href="https://www.instagram.com/parcamp.accesorios/" target="_blank" rel="noopener"><img src="assets/Parcamp.svg" alt="Parcamp" loading="lazy"></a>
+      <div class="sponsor-item__name">Parcamp</div>
+      <a class="sponsor-item__handle" href="https://www.instagram.com/parcamp.accesorios/" target="_blank" rel="noopener">@parcamp.accesorios</a>
+      <a class="sponsor-item__follow" href="https://www.instagram.com/parcamp.accesorios/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        Seguir
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </a>
+    </div>
+    <div class="sponsor-item">
+      <a class="sponsor-item__logo" href="https://www.instagram.com/crisvenventanas/" target="_blank" rel="noopener"><img src="assets/Crisven.svg" alt="Crisven" loading="lazy"></a>
+      <div class="sponsor-item__name">Crisven</div>
+      <a class="sponsor-item__handle" href="https://www.instagram.com/crisvenventanas/" target="_blank" rel="noopener">@crisvenventanas</a>
+      <a class="sponsor-item__follow" href="https://www.instagram.com/crisvenventanas/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        Seguir
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </a>
+    </div>
+    <div class="sponsor-item">
+      <a class="sponsor-item__logo" href="https://www.instagram.com/barbus.ar/" target="_blank" rel="noopener"><img src="assets/Barbus.svg" alt="Barbus" loading="lazy"></a>
+      <div class="sponsor-item__name">Barbus</div>
+      <a class="sponsor-item__handle" href="https://www.instagram.com/barbus.ar/" target="_blank" rel="noopener">@barbus.ar</a>
+      <a class="sponsor-item__follow" href="https://www.instagram.com/barbus.ar/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        Seguir
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </a>
+    </div>
+    <div class="sponsor-item">
+      <a class="sponsor-item__logo" href="https://www.instagram.com/cabert.sas/" target="_blank" rel="noopener"><img src="assets/Cabert.svg" alt="Cabert" loading="lazy"></a>
+      <div class="sponsor-item__name">Cabert</div>
+      <a class="sponsor-item__handle" href="https://www.instagram.com/cabert.sas/" target="_blank" rel="noopener">@cabert.sas</a>
+      <a class="sponsor-item__follow" href="https://www.instagram.com/cabert.sas/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        Seguir
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </a>
+    </div>
+    <div class="sponsor-item">
+      <a class="sponsor-item__logo" href="https://www.instagram.com/gibertcar.motorhomes/" target="_blank" rel="noopener"><img src="assets/Gibertcar.svg" alt="Gibertcar" loading="lazy"></a>
+      <div class="sponsor-item__name">Gibertcar</div>
+      <a class="sponsor-item__handle" href="https://www.instagram.com/gibertcar.motorhomes/" target="_blank" rel="noopener">@gibertcar.motorhomes</a>
+      <a class="sponsor-item__follow" href="https://www.instagram.com/gibertcar.motorhomes/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        Seguir
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </a>
+    </div>
+    <div class="sponsor-item">
+      <a class="sponsor-item__logo" href="https://www.instagram.com/centrointegraldelsemiacoplado/" target="_blank" rel="noopener"><img src="assets/cis.svg" alt="CIS" loading="lazy"></a>
+      <div class="sponsor-item__name">CIS</div>
+      <a class="sponsor-item__handle" href="https://www.instagram.com/centrointegraldelsemiacoplado/" target="_blank" rel="noopener">@centrointegraldelsemiacoplado</a>
+      <a class="sponsor-item__follow" href="https://www.instagram.com/centrointegraldelsemiacoplado/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        Seguir
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </a>
+    </div>
+    <div class="sponsor-item">
+      <a class="sponsor-item__logo" href="https://www.todomotorhome.ar/store/panelcar" target="_blank" rel="noopener"><img src="assets/panelcar.svg" alt="Panelcar" loading="lazy"></a>
+    </div>
+    <div class="sponsor-item">
+      <a class="sponsor-item__logo" href="https://www.instagram.com/rga.neumaticos/" target="_blank" rel="noopener"><img src="assets/rga.svg" alt="RGA" loading="lazy"></a>
+      <div class="sponsor-item__name">RGA</div>
+      <a class="sponsor-item__handle" href="https://www.instagram.com/rga.neumaticos/" target="_blank" rel="noopener">@rga.neumaticos</a>
+      <a class="sponsor-item__follow" href="https://www.instagram.com/rga.neumaticos/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        Seguir
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </a>
+    </div>
+    <div class="sponsor-item">
+      <a class="sponsor-item__logo" href="https://www.instagram.com/iotx.smarthome/" target="_blank" rel="noopener"><img src="assets/logo byn.jpg" alt="Iotx Smart RV" loading="lazy"></a>
+      <div class="sponsor-item__name">Iotx Smart RV</div>
+      <a class="sponsor-item__handle" href="https://www.instagram.com/iotx.smarthome/" target="_blank" rel="noopener">@iotx.smarthome</a>
+      <a class="sponsor-item__follow" href="https://www.instagram.com/iotx.smarthome/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        Seguir
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </a>
+    </div>
+    <div class="sponsor-item">
+      <a class="sponsor-item__logo" href="https://www.instagram.com/caram.sa/" target="_blank" rel="noopener"><img src="assets/caram.jpg" alt="Caram" loading="lazy"></a>
+      <div class="sponsor-item__name">Caram</div>
+      <a class="sponsor-item__handle" href="https://www.instagram.com/caram.sa/" target="_blank" rel="noopener">@caram.sa</a>
+      <a class="sponsor-item__follow" href="https://www.instagram.com/caram.sa/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        Seguir
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </a>
+    </div>
+    <div class="sponsor-item">
+      <a class="sponsor-item__logo" href="https://www.instagram.com/nauticaycamping/" target="_blank" rel="noopener"><img src="assets/nauticaycamping.jpg" alt="Nautica &amp; Camping" loading="lazy"></a>
+      <div class="sponsor-item__name">Nautica &amp; Camping</div>
+      <a class="sponsor-item__handle" href="https://www.instagram.com/nauticaycamping/" target="_blank" rel="noopener">@nauticaycamping</a>
+      <a class="sponsor-item__follow" href="https://www.instagram.com/nauticaycamping/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        Seguir
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </a>
+    </div>
+    <div class="sponsor-item">
+      <a class="sponsor-item__logo" href="https://www.instagram.com/rototech.l.ch/" target="_blank" rel="noopener"><img src="assets/rototech.svg" alt="Rototech" loading="lazy"></a>
+      <div class="sponsor-item__name">Rototech</div>
+      <a class="sponsor-item__handle" href="https://www.instagram.com/rototech.l.ch/" target="_blank" rel="noopener">@rototech.l.ch</a>
+      <a class="sponsor-item__follow" href="https://www.instagram.com/rototech.l.ch/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        Seguir
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </a>
+    </div>
+    <div class="sponsor-item">
+      <a class="sponsor-item__logo" href="https://www.instagram.com/todomotorhome.ar/" target="_blank" rel="noopener"><img src="assets/todomotorhome-logo-black.png" alt="Todo Motorhome" loading="lazy"></a>
+      <div class="sponsor-item__name">Todo Motorhome</div>
+      <a class="sponsor-item__handle" href="https://www.instagram.com/todomotorhome.ar/" target="_blank" rel="noopener">@todomotorhome.ar</a>
+      <a class="sponsor-item__follow" href="https://www.instagram.com/todomotorhome.ar/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        Seguir
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+      </a>
+    </div>
 </div>
+  <div class="sponsor-strip__footer">
+    <div class="sponsor-strip__footer-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+    </div>
+    <div>
+      <div class="sponsor-strip__footer-title">¿Ya seguiste todas las marcas?</div>
+      <div class="sponsor-strip__footer-desc">Después de seguir las 16 marcas, ya estás listo para participar en el sorteo.</div>
+    </div>
+  </div>
 </div>
 
 <!-- Importante: registro + censo -->
