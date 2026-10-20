@@ -659,7 +659,84 @@
       </div>
     </div>
     <div class="hero-photo">
-      <img src="assets/dako-trailer.jpg" alt="Casa Rodante Dako 250 enganchada a la camioneta, lista para viajar" width="1553" height="899" loading="eager">
+      <!-- INICIO <img src="assets/dako-trailer.jpg" alt="Casa Rodante Dako 250 enganchada a la camioneta, lista para viajar" width="1553" height="899" loading="eager">-->
+
+
+      <section class="dako-carousel" id="dakoCarousel" aria-label="Fotos do trailer DAKO 2.50">
+    <div class="dako-carousel__stage">
+      <div class="dako-carousel__slide is-active">
+        <img src="assets/dako-trailer-1.webp" alt="Vista frontal e lateral do trailer DAKO 2.50" fetchpriority="high">
+      </div>
+      <div class="dako-carousel__slide">
+        <img src="assets/dako-trailer-2.webp" alt="Cozinha interna com pia, fogão e geladeira" loading="lazy">
+      </div>
+      <div class="dako-carousel__slide">
+        <img src="assets/dako-trailer-3.webp" alt="Vista traseira do trailer DAKO 2.50" loading="lazy">
+      </div>
+      <div class="dako-carousel__slide">
+        <img src="assets/dako-trailer-4.webp" alt="Interior do trailer com cozinha e área de mesa" loading="lazy">
+      </div>
+      <div class="dako-carousel__slide">
+        <img src="assets/dako-trailer-5.webp" alt="Vista externa lateral do trailer DAKO 2.50" loading="lazy">
+      </div>
+      <div class="dako-carousel__slide">
+        <img src="assets/dako-trailer-6.webp" alt="Mesa e bancos na área interna do trailer" loading="lazy">
+      </div>
+      <button class="dako-carousel__arrow dako-carousel__arrow--prev" type="button" aria-label="Imagem anterior">&#8249;</button>
+      <button class="dako-carousel__arrow dako-carousel__arrow--next" type="button" aria-label="Próxima imagem">&#8250;</button>
+      <span class="dako-carousel__counter" aria-live="polite">1 / 6</span>
+    </div>
+    <div class="dako-carousel__dots" aria-label="Escolher imagem">
+      <button class="dako-carousel__dot is-active" type="button" aria-label="Mostrar imagem 1"></button>
+      <button class="dako-carousel__dot" type="button" aria-label="Mostrar imagem 2"></button>
+      <button class="dako-carousel__dot" type="button" aria-label="Mostrar imagem 3"></button>
+      <button class="dako-carousel__dot" type="button" aria-label="Mostrar imagem 4"></button>
+      <button class="dako-carousel__dot" type="button" aria-label="Mostrar imagem 5"></button>
+      <button class="dako-carousel__dot" type="button" aria-label="Mostrar imagem 6"></button>
+    </div>
+  </section>
+  <script>
+    (() => {
+      const root = document.getElementById('dakoCarousel');
+      if (!root) return;
+      const slides = [...root.querySelectorAll('.dako-carousel__slide')];
+      const dots = [...root.querySelectorAll('.dako-carousel__dot')];
+      const counter = root.querySelector('.dako-carousel__counter');
+      let current = 0;
+      let timer;
+      const show = (index) => {
+        current = (index + slides.length) % slides.length;
+        slides.forEach((slide, i) => slide.classList.toggle('is-active', i === current));
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('is-active', i === current);
+          dot.setAttribute('aria-current', i === current ? 'true' : 'false');
+        });
+        counter.textContent = `${current + 1} / ${slides.length}`;
+      };
+      const restart = () => {
+        clearInterval(timer);
+        timer = setInterval(() => show(current + 1), 5000);
+      };
+      root.querySelector('.dako-carousel__arrow--prev').addEventListener('click', () => { show(current - 1); restart(); });
+      root.querySelector('.dako-carousel__arrow--next').addEventListener('click', () => { show(current + 1); restart(); });
+      dots.forEach((dot, i) => dot.addEventListener('click', () => { show(i); restart(); }));
+      root.addEventListener('mouseenter', () => clearInterval(timer));
+      root.addEventListener('mouseleave', restart);
+      root.addEventListener('focusin', () => clearInterval(timer));
+      root.addEventListener('focusout', restart);
+      let startX = null;
+      root.addEventListener('touchstart', e => { startX = e.changedTouches[0].clientX; }, {passive:true});
+      root.addEventListener('touchend', e => {
+        if (startX === null) return;
+        const dx = e.changedTouches[0].clientX - startX;
+        if (Math.abs(dx) > 45) { show(current + (dx < 0 ? 1 : -1)); restart(); }
+        startX = null;
+      }, {passive:true});
+      restart();
+    })();
+  </script>
+
+      <!-- FIM -->
     </div>
   </div>
 </section>
