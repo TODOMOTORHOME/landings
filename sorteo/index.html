@@ -508,6 +508,7 @@
   }
   .sponsor-item__follow:hover{background:var(--gold-dark);border-color:var(--gold-dark);box-shadow:0 6px 20px rgba(201,155,47,.35);transform:translateY(-1px);}
   .sponsor-item__follow svg{width:15px;height:15px;flex-shrink:0;}
+  .sponsor-item__follow--disabled,.sponsor-item__follow--disabled:hover{background:#c9c9c9;border-color:#c9c9c9;color:#fff;box-shadow:none;transform:none;cursor:default;}
   .sponsor-strip__footer{
     display:flex;align-items:center;gap:16px;text-align:left;
     margin-top:28px;padding:18px 22px;background:#fff;border:1px solid var(--line);border-radius:14px;
@@ -991,6 +992,12 @@
     </div>
     <div class="sponsor-item">
       <a class="sponsor-item__logo" href="https://www.todomotorhome.ar/store/panelcar" target="_blank" rel="noopener"><img src="assets/panelcar.svg" alt="Panelcar" loading="lazy"></a>
+      <div class="sponsor-item__name">Panelcar</div>
+      <span class="sponsor-item__handle">No seguir esta cuenta</span>
+      <span class="sponsor-item__follow sponsor-item__follow--disabled" aria-disabled="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        Sin Instagram
+      </span>
     </div>
     <div class="sponsor-item">
       <a class="sponsor-item__logo" href="https://www.instagram.com/rga.neumaticos/" target="_blank" rel="noopener"><img src="assets/rga.svg" alt="RGA" loading="lazy"></a>
